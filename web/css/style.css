@@ -1,17 +1,18 @@
 /*-----Estilos de InfinitySoft-----*/
 
+/*Fuentes*/ 
+@font-face {
+  font-family: 'MyWebFont';
+  src: url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+}
+
 * {
   margin: 0;
   padding: 0;
 }
 
-@font-face {
-  font-family: 'Roboto', sans-serif;
-  src: url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
-}
-
 body {
-  font-family: 'Roboto';
+  font-family: 'Roboto', sans-serif;
 }
 
 /*Estructura de pagina*/
@@ -43,14 +44,41 @@ body {
   font-size: 1.3em;
 }
 
+.icon{
+  color: gray;
+}
+
 .header_logo h2{
   font-size: 0.8em;
+}
+
+.navigation{
+  padding-top: 200px;
+  background-color: rgba(0, 0, 0, 0.911);
+  text-align: center;
+  transition: width 3s;
+  transition-delay: 1s;
 }
 
 #header_logo_text{
   display: flex;
   flex-direction: column;
   text-align: center;
+}
+
+.navigation{
+  display: none;
+  
+}
+
+.responsive{
+  display: block;
+  
+}
+
+header label:hover{
+  cursor: pointer;
+  color: red;
 }
 
 .header_logo > a:link, .header_logo > a:visited, .navigation a:link, .navigation a:visited, .navigation li{
@@ -61,9 +89,6 @@ body {
 
 #header_logo_img{
   width: 20%;
-}
-.navigation{
-  display: none;
 }
 
 /*Iframe para responsive*/
@@ -140,6 +165,10 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
+  width: 100%;
+}
+
+.img_article{
   width: 100%;
 }
 
@@ -551,8 +580,14 @@ video{
   }
 
   .article_blog_1{
+    align-items: center;
     padding-left: 100px;
     width: 60%;
+  }
+
+  .img_article{
+    width: 50%;
+    height: 500px;
   }
 
   #search{
@@ -609,6 +644,10 @@ video{
     align-items: flex-end;
     flex-direction: column;
     width: 100%;
+  }
+
+  .navigation{
+    padding-top: 0;
   }
 
   .navigation li:hover{

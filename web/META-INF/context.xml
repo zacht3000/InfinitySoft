@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/InfinitySoft"/>
+<Context path="/InfinitySoft"> 
+    <Resource name="jdbc/InfinitySoft" auth="Container" type="javax.sql.DataSource" 
+              maxActive="15" maxIdle="3" 
+              maxWait="5000" 
+              username="alumnoDAW" password="alumnoDAW" 
+              driverClassName="oracle.jdbc.driver.OracleDriver" 
+              url="jdbc:oracle:thin:@192.168.1.72:1521:xe" />
+</Context>

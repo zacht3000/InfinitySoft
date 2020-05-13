@@ -91,4 +91,25 @@ public class ListaUsuarios {
         return false;
     }
     
+    public Usuario getBuscaUsuarioNickName(String nickName) throws SQLException{
+        for (Usuario usuario : this.getUsuarios()) {
+            if(usuario.getNickName().endsWith(nickName))
+                return usuario;
+        }
+        return null;
+    }
+    
+    public Usuario getBuscaUsuarioCorreo(String correo) throws SQLException{
+        for (Usuario usuario : this.getUsuarios()) {
+            if(usuario.getCorreo().endsWith(correo))
+                return usuario;
+        }
+        return null;
+    }
+    
+    public boolean esContrasenyaCorecta(Usuario usuario, String contrasenya){
+            return usuario.getContrasenya().equals(contrasenya);
+    }
+   
+    
 }

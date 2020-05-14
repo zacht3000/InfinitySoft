@@ -5,6 +5,7 @@
  */
 package servlets.login;
 
+import Exception.UserNotExistException;
 import Exception.ContrasenyaIncorrectaException;
 import Exception.UserRegisterException;
 import java.io.IOException;
@@ -55,14 +56,19 @@ public class login extends HttpServlet {
                 usuario = usuariosRegistrados.getBuscaUsuarioNickName(nombreCorreo);
             }
             
+            if(usuario == null){
+                throw new UserNotExistException(); 
+            }
+            
             if(!usuariosRegistrados.esContrasenyaCorecta(usuario, contrasenya))
                 throw new ContrasenyaIncorrectaException(); 
             
             
             session.setAttribute("usuario", usuario);
-            application.getRequestDispatcher("/index.html").forward(request, response);
+            response.sendRedirect("/InfinitySoft/index.jsp");
+            //application.getRequestDispatcher("/index.jsp").forward(request, response);
 
-        } catch (UserRegisterException | ContrasenyaIncorrectaException ex) {
+        } catch (UserRegisterException | ContrasenyaIncorrectaException | UserNotExistException ex) {
             request.setAttribute("messageError", ex.getMessage());
             application.getRequestDispatcher("/html/login.jsp").forward(request, response);
         } catch (SQLException ex) {

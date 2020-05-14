@@ -93,7 +93,7 @@ public class ListaUsuarios {
     
     public Usuario getBuscaUsuarioNickName(String nickName) throws SQLException{
         for (Usuario usuario : this.getUsuarios()) {
-            if(usuario.getNickName().endsWith(nickName))
+            if(usuario.getNickName().equals(nickName))
                 return usuario;
         }
         return null;
@@ -101,7 +101,7 @@ public class ListaUsuarios {
     
     public Usuario getBuscaUsuarioCorreo(String correo) throws SQLException{
         for (Usuario usuario : this.getUsuarios()) {
-            if(usuario.getCorreo().endsWith(correo))
+            if(usuario.getCorreo().equals(correo))
                 return usuario;
         }
         return null;

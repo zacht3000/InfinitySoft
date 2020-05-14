@@ -45,7 +45,8 @@ public class init extends HttpServlet {
         application.setAttribute("usuariosRegistrados", usuariosRegistrados);
         
         // Salto al JSP
-        application.getRequestDispatcher("/html/register.jsp").forward(request, response);
+        response.sendRedirect(request.getContextPath() + "/index.jsp");
+       // application.getRequestDispatcher("/index.html").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

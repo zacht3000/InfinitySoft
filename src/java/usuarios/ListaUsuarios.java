@@ -72,41 +72,41 @@ public class ListaUsuarios {
         }
     }
     
-    public boolean yaExisteNickName(String nickName) throws SQLException{
+    public boolean yaExisteNickNameOrCorreo(String param) throws SQLException{
         for (Usuario usuario : this.getUsuarios()) {
-            if (usuario.getNickName().equals(nickName)) {
+            if (usuario.getNickName().equals(param) || usuario.getCorreo().equals(param)) {
                 return true;
             }
         }
         return false;
     }
     
-    public boolean yaExisteCorreo(String correo) throws SQLException{
-        for (Usuario usuario : this.getUsuarios()) {
-            if (usuario.getCorreo().equals(correo)) {
-                return true;
-            }
-        }
-        
-        return false;
-    }
+//    public boolean yaExisteCorreo(String correo) throws SQLException{
+//        for (Usuario usuario : this.getUsuarios()) {
+//            if (usuario.getCorreo().equals(correo)) {
+//                return true;
+//            }
+//        }
+//        
+//        return false;
+//    }
     
-    public Usuario getBuscaUsuarioNickName(String nickName) throws SQLException{
+    public Usuario getBuscaUsuarioNickNameOrCorreo(String param) throws SQLException{
         for (Usuario usuario : this.getUsuarios()) {
-            if(usuario.getNickName().equals(nickName))
+            if(usuario.getNickName().equals(param) || usuario.getCorreo().equals(param))
                 return usuario;
         }
         return null;
     }
     
-    public Usuario getBuscaUsuarioCorreo(String correo) throws SQLException{
-        for (Usuario usuario : this.getUsuarios()) {
-            if(usuario.getCorreo().equals(correo))
-                return usuario;
-        }
-        return null;
-    }
-    
+//    public Usuario getBuscaUsuarioCorreo(String correo) throws SQLException{
+//        for (Usuario usuario : this.getUsuarios()) {
+//            if(usuario.getCorreo().equals(correo))
+//                return usuario;
+//        }
+//        return null;
+//    }
+//    
     public boolean esContrasenyaCorecta(Usuario usuario, String contrasenya){
             return usuario.getContrasenya().equals(contrasenya);
     }

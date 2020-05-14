@@ -51,9 +51,9 @@ public class login extends HttpServlet {
             String nombreCorreo = getParameter(request, "nombreCorreo", usuariosRegistrados);
             String contrasenya = getParameter(request, "contrasenya", usuariosRegistrados);
             if (esCorreo(nombreCorreo)) {
-                usuario = usuariosRegistrados.getBuscaUsuarioCorreo(nombreCorreo);
+                usuario = usuariosRegistrados.getBuscaUsuarioNickNameOrCorreo(nombreCorreo);
             } else{
-                usuario = usuariosRegistrados.getBuscaUsuarioNickName(nombreCorreo);
+                usuario = usuariosRegistrados.getBuscaUsuarioNickNameOrCorreo(nombreCorreo);
             }
             
             if(usuario == null){
@@ -82,7 +82,7 @@ public class login extends HttpServlet {
         String parameter = request.getParameter(texto);
 
         if (parameter.isEmpty()) {
-            throw new UserRegisterException(texto);
+            throw new UserRegisterException("nombre o correo");
         }
 
         return parameter;

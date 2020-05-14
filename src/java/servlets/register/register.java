@@ -74,12 +74,12 @@ public class register extends HttpServlet {
         
         if(texto.equals("correo")){
             parameter = getCorreo(texto, parameter);
-            if(usuariosRegistrados.yaExisteCorreo(parameter)){
+            if(usuariosRegistrados.yaExisteNickNameOrCorreo(parameter)){
                 throw new UserAlreadyExistsException(texto);
             }
         } else if(texto.equals("nickname")){
             parameter = getNickName(texto, parameter);
-            if(usuariosRegistrados.yaExisteNickName(parameter)){
+            if(usuariosRegistrados.yaExisteNickNameOrCorreo(parameter)){
                 throw new UserAlreadyExistsException(texto);
             }
         } else if(texto.equals("contrasyna")){

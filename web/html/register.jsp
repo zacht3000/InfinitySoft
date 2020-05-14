@@ -18,7 +18,10 @@
         </c:if>
         <c:if test="${not empty messageError}">
                     <div>${messageError}</div>
-        </c:if>                     
+        </c:if>
+        <c:if test="${sessionScope.usuario ne null}">
+            <c:redirect url="/index.jsp" context="/InfinitySoft"></c:redirect>
+        </c:if>
         <form action="register" method="POST">
             <label for="nickname">NickName: </label><input type="text" name="nickname"/><br/>
             <label for="nombre">Nombre: </label><input type="text" name="nombre"/><br/>

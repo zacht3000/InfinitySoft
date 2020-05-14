@@ -15,19 +15,51 @@
         <meta name="description" content="InfinitySoft">
         <meta name="keywords" content="InfinitySoft, work, trabajo, 
               Web design, diseño web, web hosting, alojamiento web, ecommerce, comercio electronico">
-        <link rel="shortcut icon" type="img/ico" href="${pageContext.request.contextPath}/multimedia/img/ico/favicon.ico" />
+        <link rel="shortcut icon" type="img/ico" href="media/img/ico/favicon.ico" />
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-        <link rel ="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
         <title>INFINITYSOFT</title>
     </head>
 
     <body>
         <main class="main">
-            <header class="header">
+            <header>
+                <nav>
+                    <ul class="menu">
+                        <div class="logo" id="container_logo">
+                            <a href="#">
+                                <img id="logo_img" src="${pageContext.request.contextPath}/media/img/png/Logo.png" alt="Logo">
+                            </a>
+                            <div>
+                                <h1>INFINITYSOFT</h1>
+                                <h2>Tú haces que sea infinito</h2>
+                            </div>
+                        </div>
+                        <li class="item"><a href="${pageContext.request.contextPath}/index.jsp">INICIO</a></li>
+                        <li class="item"><a href="#">SUSCRIPCIONES</a></li>
+                        <li class="item"><a href="#">PLANTILLA</a></li>
+                        <li class="item"><a href="${pageContext.request.contextPath}/html/contacto.html">CONTACTO</a></li>
+                        <li class="item"><a href="#">SOBRE NOSOTROS</a></li>
+                        <li class="item"><a href="${pageContext.request.contextPath}/html/blog.html">BLOG</a>
+                        </li>
+                        <c:if test="${sessionScope.usuario eq null}">
+                        <li class="item button"><a href="${pageContext.request.contextPath}/html/login.jsp">ENTRAR</a></li>
+                        <li class="item button secondary"><a href="html/register.jsp">REGISTRARSE</a></li>
+                        </c:if>
+                        <c:if test="${sessionScope.usuario ne null}">
+                            <li class="item button"><a href="${pageContext.request.contextPath}/html/login.jsp">${sessionScope.usuario.getNickName()}</a></li>
+                            <li class="item button secondary"><a href="${pageContext.request.contextPath}/html/closeSession.jsp">CERRAR SESIÓN</a></li>
+                        </c:if>
+                        <li class="toggle"><a href="#" onclick="myFunction()"><i id="icon" class="fas fa-bars"></i></a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!--<header class="header">
                 <div class="header_logo">
                     <img id="header_logo_img" src="/multimedia/img/png/Logo.png" alt="Logo">
                     <a href="index.html">
@@ -56,7 +88,7 @@
                 <div class="icon">
                     <i class="fa fa-bars"></i>
                 </div>
-            </header>
+            </header>-->
             <div class="container_welcome">
                 <div class="container_welcome_box">
                     <p>El Lugar Perfecto para Crear tu Pagina Web Profesional</p>
@@ -144,7 +176,7 @@
                 <p><small>TEMA CREADO POR INFINITYSOFT</small></p>
             </footer>
         </main>
-
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/animation.js"></script>
     </body>
 
 </html>

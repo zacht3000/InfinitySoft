@@ -48,7 +48,7 @@
                         </li>
                         <c:if test="${sessionScope.usuario eq null}">
                         <li class="item button"><a href="${pageContext.request.contextPath}/html/login.jsp">ENTRAR</a></li>
-                        <li class="item button secondary"><a href="html/register.jsp">REGISTRARSE</a></li>
+                        <li class="item button secondary"><a href="${pageContext.request.contextPath}/html/register.jsp">REGISTRARSE</a></li>
                         </c:if>
                         <c:if test="${sessionScope.usuario ne null}">
                             <li class="item button"><a href="${pageContext.request.contextPath}/html/login.jsp">${sessionScope.usuario.getNickName()}</a></li>

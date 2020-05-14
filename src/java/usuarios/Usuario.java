@@ -56,4 +56,8 @@ public class Usuario {
         return tipo;
     }
     
+    public boolean esContrasenyaCorecta(String contrasenya){
+            return this.getContrasenya().equals(contrasenya);
+    }
+    
 }

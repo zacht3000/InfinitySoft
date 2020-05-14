@@ -107,9 +107,5 @@ public class ListaUsuarios {
 //        return null;
 //    }
 //    
-    public boolean esContrasenyaCorecta(Usuario usuario, String contrasenya){
-            return usuario.getContrasenya().equals(contrasenya);
-    }
-   
     
 }

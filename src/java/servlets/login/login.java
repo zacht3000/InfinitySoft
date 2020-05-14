@@ -60,7 +60,7 @@ public class login extends HttpServlet {
                 throw new UserNotExistException(); 
             }
             
-            if(!usuariosRegistrados.esContrasenyaCorecta(usuario, contrasenya))
+            if(!usuario.esContrasenyaCorecta(contrasenya))
                 throw new ContrasenyaIncorrectaException(); 
             
             

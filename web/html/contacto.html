@@ -1,49 +1,47 @@
 <!DOCTYPE html>
-<html lang="ES">
+<html>
 
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="Santiago Naranjo Marcillo">
     <meta name="description" content="InfinitySoft">
     <meta name="keywords" content="InfinitySoft, work, trabajo, 
-        Web design, diseño web, web hosting, alojamiento web, ecommerce, comercio electronico">
-    <link rel="shortcut icon" type="img/ico" href="../media/img/ico/favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+              Web design, diseño web, web hosting, alojamiento web, ecommerce, comercio electronico">
+    <link rel="shortcut icon" type="img/ico" href="media/img/ico/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel ="stylesheet" href ="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <title>INFINITYSOFT</title>
 </head>
 
 <body>
     <main class="main">
-        <header class="header">
-            <div class="header_logo">
-                <img id="header_logo_img" src="../media/img/png/Logo.png" alt="Logo">
-                <a href="../index.html">
-                    <div id="header_logo_text">
-                        <h1>INFINITYSOFT</h1>
-                        <h2>Tú haces que sea infinito</h2>
+        <header>
+            <nav>
+                <ul class="menu">
+                    <div class="logo" id="container_logo">
+                        <a href="#">
+                            <img id="logo_img" src="media/img/png/Logo.png" alt="Logo">
+                        </a>
+                        <div>
+                            <h1>INFINITYSOFT</h1>
+                            <h2>Tú haces que sea infinito</h2>
+                        </div>
                     </div>
-                </a>
-            </div>
-            <nav class="navigation">
-                <ul>
-                    <li><a href="../index.html">INICIO</a></li>
-                    <li><a href="#">SUSCRIPCIONES</a></li>
-                    <li><a href="#">PLANTILLA</a></li>
-                    <li><a href="contacto.html">CONTACTO</a></li>
-                    <li><a href="#">SOBRE NOSOTROS</a></li>
-                    <li><a href="blog.html">BLOG</a></li>
-                </ul>
-            </nav>
-            <div class="icon">
-                <i class="fa fa-bars"></i>
-            </div>
-            <nav class="navigation">
-                <ul>
-                    <li><a href="#">ENTRAR</a></li>
-                    <li><a href="#">REGISTRARSE</a></li>
+                    <li class="item"><a href="../index.jsp">INICIO</a></li>
+                    <li class="item"><a href="#">SUSCRIPCIONES</a></li>
+                    <li class="item"><a href="#">PLANTILLA</a></li>
+                    <li class="item"><a href="#">CONTACTO</a></li>
+                    <li class="item"><a href="#">SOBRE NOSOTROS</a></li>
+                    <li class="item"><a href="blog.html">BLOG</a>
+                    </li>
+                    <li class="item button"><a href="../html/login.jsp">ENTRAR</a></li>
+                    <li class="item button secondary"><a href="../html/register.jsp">REGISTRARSE</a></li>
+                    <li class="toggle"><a href="#" onclick="myFunction()"><i id="icon" class="fas fa-bars"></i></a></li>
                 </ul>
             </nav>
         </header>

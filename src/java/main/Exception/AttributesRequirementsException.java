@@ -3,24 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Exception;
+package main.Exception;
 
 /**
  *
  * @author Santiago Naranjo Marcillo
  */
-public class UserNotExistException extends Exception {
+public class AttributesRequirementsException extends Exception{
 
-       String texto;
-
-    public UserNotExistException() {
+    String texto;
+    
+    public AttributesRequirementsException(String texto) {
         super();
         this.texto = texto;
     }
 
     @Override
     public String getMessage() {
-        return "No exite el usuario"; //To change body of generated methods, choose Tools | Templates.
+        return "El " + texto + " no cumple los requisitos.";
     }
-    
 }

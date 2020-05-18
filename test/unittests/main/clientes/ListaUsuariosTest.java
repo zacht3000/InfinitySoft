@@ -3,25 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package JUnit;
+package unittests.main.clientes;
+
+
 
 import java.sql.SQLException;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+
+import main.usuarios.ListaUsuarios;
+import main.usuarios.TipoUsuario;
+import main.usuarios.Usuario;
 import org.junit.Test;
-import usuarios.ListaUsuarios;
-import usuarios.TipoUsuario;
-import usuarios.Usuario;
-import util.DataSourceTest;
+import static org.junit.Assert.*;
+import unittests.UnitTest;
+
 
 /**
  *
- * @author Santiago Naranjo Marcillo
+ * @author Rober
  */
-public class TestListaUsuarios extends DataSourceTest{
+public class ListaUsuariosTest extends UnitTest{
+    
     private final ListaUsuarios listaUsuarios;
     
-    public TestListaUsuarios(){
+    public ListaUsuariosTest() {
         super();
         this.listaUsuarios = new ListaUsuarios(this.dataSource);
     }
@@ -66,5 +70,4 @@ public class TestListaUsuarios extends DataSourceTest{
         
     
     }
-    
 }

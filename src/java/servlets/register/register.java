@@ -5,11 +5,11 @@
  */
 package servlets.register;
 
-import Exception.UserAlreadyExistsException;
-import Exception.AttributesRequirementsException;
-import Exception.UserRegisterException;
-import usuarios.ListaUsuarios;
-import usuarios.Usuario;
+import main.Exception.UserAlreadyExistsException;
+import main.Exception.AttributesRequirementsException;
+import main.Exception.UserRegisterException;
+import main.usuarios.ListaUsuarios;
+import main.usuarios.Usuario;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.io.PrintWriter;
@@ -20,7 +20,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import usuarios.TipoUsuario;
+import main.usuarios.TipoUsuario;
 
 /**
  *

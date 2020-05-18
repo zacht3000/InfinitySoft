@@ -3,23 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Exception;
+package main.Exception;
 
 /**
  *
  * @author Santiago Naranjo Marcillo
  */
-public class AttributesRequirementsException extends Exception{
-
-    String texto;
+public class UserAlreadyExistsException extends Exception {
     
-    public AttributesRequirementsException(String texto) {
+    String texto;
+
+    public UserAlreadyExistsException(String texto) {
         super();
         this.texto = texto;
     }
 
     @Override
     public String getMessage() {
-        return "El " + texto + " no cumple los requisitos.";
+        return "Ya exite el " + texto +", intentelo con otro " + texto; //To change body of generated methods, choose Tools | Templates.
     }
+    
 }

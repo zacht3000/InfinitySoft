@@ -3,24 +3,24 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Exception;
+package main.Exception;
 
 /**
  *
  * @author Santiago Naranjo Marcillo
  */
-public class UserAlreadyExistsException extends Exception {
-    
-    String texto;
+public class UserNotExistException extends Exception {
 
-    public UserAlreadyExistsException(String texto) {
+       String texto;
+
+    public UserNotExistException() {
         super();
         this.texto = texto;
     }
 
     @Override
     public String getMessage() {
-        return "Ya exite el " + texto +", intentelo con otro " + texto; //To change body of generated methods, choose Tools | Templates.
+        return "No exite el usuario o correo"; //To change body of generated methods, choose Tools | Templates.
     }
     
 }

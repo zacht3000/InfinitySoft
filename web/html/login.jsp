@@ -60,7 +60,7 @@
             </header>
             <h1>Login</h1>
             <c:if test="${not empty messageError}">
-                <div style="color:white">${messageError}</div>
+                <div class="Error" style="color:white"><p id="error">${messageError}</p></div>
             </c:if> 
             <c:if test="${sessionScope.usuario ne null}">
                 <c:redirect url="/index.jsp" context="/InfinitySoft"></c:redirect>

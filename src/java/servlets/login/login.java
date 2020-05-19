@@ -46,8 +46,8 @@ public class login extends HttpServlet {
         ListaUsuarios usuariosRegistrados = (ListaUsuarios) application.getAttribute("usuariosRegistrados");
         
         try {
-            String nombreCorreo = getParameter(request, "nombreCorreo", "nombre o e-mail.",usuariosRegistrados);
-            String contrasenya = getParameter(request, "contrasenya", "contraseña.",usuariosRegistrados);
+            String nombreCorreo = getParameter(request, "nombreCorreo", "nombre o e-mail",usuariosRegistrados);
+            String contrasenya = getParameter(request, "contrasenya", "contraseña",usuariosRegistrados);
             if (esCorreo(nombreCorreo)) {
                 usuario = usuariosRegistrados.getBuscaUsuarioNickNameOrCorreo(nombreCorreo);
             } else{

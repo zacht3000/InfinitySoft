@@ -5,6 +5,7 @@
  */
 package seleniumtests.tests.index;
 
+import seleniumtests.tests.html.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.openqa.selenium.By;

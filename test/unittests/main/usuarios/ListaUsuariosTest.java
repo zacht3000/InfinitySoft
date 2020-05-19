@@ -74,18 +74,6 @@ public class ListaUsuariosTest extends UnitTest{
         }
     }
     
-    @Test
-    public void noExisteNickNameOrCorreo() {
-        
-        try {
-            this.listaUsuarios.getBuscaUsuarioNickNameOrCorreo("User");
-            fail();
-        } catch (UserNotExistException ex){
-            
-        } catch (SQLException ex) {
-            
-        }
-    }
     
     @Test
     public void getBuscaUsuarioNickName() throws UserNotExistException{
@@ -121,9 +109,7 @@ public class ListaUsuariosTest extends UnitTest{
     public void getBuscaUsuarioNickNameException() throws UserNotExistException{
         
         try {
-            Usuario usuarios1 = new Usuario("UserR", "user@gmail.com", "Usuario", "Usuario", "1234", TipoUsuario.NORMAL);
-            this.listaUsuarios.mete(usuarios1);
-            Usuario usuarios = this.listaUsuarios.getBuscaUsuarioNickNameOrCorreo("User");
+            this.listaUsuarios.getBuscaUsuarioNickNameOrCorreo("User");
             fail();
         }catch (UserNotExistException ex){
 
@@ -136,9 +122,7 @@ public class ListaUsuariosTest extends UnitTest{
     public void getBuscaUsuarioCorreoException() throws UserNotExistException{
         
         try {
-            Usuario usuarios1 = new Usuario("UserR", "user@gmail.com", "Usuario", "Usuario", "1234", TipoUsuario.NORMAL);
-            this.listaUsuarios.mete(usuarios1);
-            Usuario usuarios = this.listaUsuarios.getBuscaUsuarioNickNameOrCorreo("User@noemail.com");
+            this.listaUsuarios.getBuscaUsuarioNickNameOrCorreo("User@noemail.com");
             fail();
         }catch (UserNotExistException ex){
             

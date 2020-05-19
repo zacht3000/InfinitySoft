@@ -42,7 +42,7 @@
                         <li class="item"><a href="${pageContext.request.contextPath}/index.jsp">INICIO</a></li>
                         <li class="item"><a href="#">SUSCRIPCIONES</a></li>
                         <li class="item"><a href="#">PLANTILLA</a></li>
-                        <li class="item"><a href="${pageContext.request.contextPath}/html/contacto.html">CONTACTO</a></li>
+                        <li class="item"><a href="${pageContext.request.contextPath}/contact.jsp">CONTACTO</a></li>
                         <li class="item"><a href="#">SOBRE NOSOTROS</a></li>
                         <li class="item"><a href="${pageContext.request.contextPath}/html/blog.html">BLOG</a>
                         </li>
@@ -71,13 +71,11 @@
                 </div>
                 <div class="container_information_contact">
                     <div class="container_information_formulary">
-                        <form id="container_information_formular_contact" method="post"
-                              action="mailto:info@infinitysoft.com">
-                            <input type="email" name="mail" id="mail" size="80" placeholder="Correo Electronica"
-                                   pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
-                                   required autofocus="autofocus">
-                            <input type="text" name="nombre" id="nombre" size="30" placeholder="Nombre">
-                            <input type="text" name="apellidos" id="apellidos" size="30" placeholder="Apellidos">
+                        <form id="container_information_formular_contact" action="Contact" method="post">
+                            <c:if test="${sessionScope.usuario eq null}">
+                                <input type="text" name="nombre" id="nombre" size="30" placeholder="Nombre">
+                                <input type="text" name="apellidos" id="apellidos" size="30" placeholder="Apellidos">
+                            </c:if>
                             <select id="familia" name="familia">
                                 <option value="informática" selected="selected">Informática y Comunicaciones</option>
                                 <option value="comercio">Comercio y Marketing</option>

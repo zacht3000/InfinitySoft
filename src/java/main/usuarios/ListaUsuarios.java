@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Optional;
 import javax.sql.DataSource;
+import main.Exception.UserNotExistException;
 
 /**
  *
@@ -81,31 +82,16 @@ public class ListaUsuarios {
         return false;
     }
     
-//    public boolean yaExisteCorreo(String correo) throws SQLException{
-//        for (Usuario usuario : this.getUsuarios()) {
-//            if (usuario.getCorreo().equals(correo)) {
-//                return true;
-//            }
-//        }
-//        
-//        return false;
-//    }
-    
-    public Usuario getBuscaUsuarioNickNameOrCorreo(String param) throws SQLException{
-        for (Usuario usuario : this.getUsuarios()) {
-            if(usuario.getNickName().equals(param) || usuario.getCorreo().equals(param))
-                return usuario;
+    public Usuario getBuscaUsuarioNickNameOrCorreo(String param) throws SQLException, UserNotExistException{
+        Optional<Usuario> usuario = getUsuarios().stream()
+                .filter(u -> param.equals(u.getNickName()) || param.equals(u.getCorreo())).findFirst();
+        
+        if (usuario.isPresent()) {
+            return usuario.get();
         }
-        return null;
+
+        throw new UserNotExistException();
     }
-    
-//    public Usuario getBuscaUsuarioCorreo(String correo) throws SQLException{
-//        for (Usuario usuario : this.getUsuarios()) {
-//            if(usuario.getCorreo().equals(correo))
-//                return usuario;
-//        }
-//        return null;
-//    }
-//    
+
     
 }

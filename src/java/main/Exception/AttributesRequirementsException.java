@@ -20,6 +20,6 @@ public class AttributesRequirementsException extends Exception{
 
     @Override
     public String getMessage() {
-        return "El " + texto + " no cumple los requisitos.";
+        return texto + " no cumple los requisitos.";
     }
 }

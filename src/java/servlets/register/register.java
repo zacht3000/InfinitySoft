@@ -73,17 +73,17 @@ public class register extends HttpServlet {
         }
         
         if(texto.equals("correo")){
-            parameter = getCorreo(texto, parameter);
+            parameter = getCorreo("El e-mail", parameter);
             if(usuariosRegistrados.yaExisteNickNameOrCorreo(parameter)){
                 throw new UserAlreadyExistsException(texto);
             }
         } else if(texto.equals("nickname")){
-            parameter = getNickName(texto, parameter);
+            parameter = getNickName("El nombre de usuario", parameter);
             if(usuariosRegistrados.yaExisteNickNameOrCorreo(parameter)){
                 throw new UserAlreadyExistsException(texto);
             }
-        } else if(texto.equals("contrasyna")){
-            parameter = getContrasenya(texto, parameter);
+        } else if(texto.equals("La contrasenya")){
+            parameter = getContrasenya("contraseña", parameter);
         }
         
         return parameter;

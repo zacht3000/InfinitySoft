@@ -66,7 +66,7 @@
                 <c:redirect url="/index.jsp" context="/InfinitySoft"></c:redirect>
             </c:if>
             <form action="login" method="POST">
-                <label for="nombreCorreo" style="color: white">Nombre de usuario o correo: </label><input type="text" name="nombreCorreo"/><br/>
+                <label for="nombreCorreo" style="color: white">Nombre de usuario o e-mail: </label><input type="text" name="nombreCorreo"/><br/>
                 <label for="contrasenya" style="color: white">Contraseña: </label><input type="password" name="contrasenya" /><br/>
                 <input type="submit" value="Entrar"/><br/>
             </form>

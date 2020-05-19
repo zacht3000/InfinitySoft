@@ -20,7 +20,7 @@ public class UserRegisterException extends Exception {
 
     @Override
     public String getMessage() {
-        return "El " + texto +" no puede estar vacío"; //To change body of generated methods, choose Tools | Templates.
+        return "Introduce tu " + texto + "."; //To change body of generated methods, choose Tools | Templates.
     }
     
 }

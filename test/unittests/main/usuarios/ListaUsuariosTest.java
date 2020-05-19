@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package unittests.main.clientes;
+package unittests.main.usuarios;
 
 
 
 import java.sql.SQLException;
+import main.Exception.UserNotExistException;
 
 import main.usuarios.ListaUsuarios;
 import main.usuarios.TipoUsuario;
@@ -16,11 +17,6 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import unittests.UnitTest;
 
-
-/**
- *
- * @author Rober
- */
 public class ListaUsuariosTest extends UnitTest{
     
     private final ListaUsuarios listaUsuarios;
@@ -31,7 +27,7 @@ public class ListaUsuariosTest extends UnitTest{
     }
     
     @Test
-    public void yaExisteNickNameOrCorreo(){
+    public void yaExisteNickNameOrCorreo() throws UserNotExistException{
         
         try {
             Usuario usuarios1 = new Usuario("UserR", "user@gmail.com", "Usuario", "Usuario", "1234", TipoUsuario.NORMAL);
@@ -57,7 +53,7 @@ public class ListaUsuariosTest extends UnitTest{
 //    }
     
     @Test
-    public void getBuscaUsuarioNickNameOrCorreo(){
+    public void getBuscaUsuarioNickNameOrCorreo() throws UserNotExistException{
         
         try {
             Usuario usuarios1 = new Usuario("UserR", "user@gmail.com", "Usuario", "Usuario", "1234", TipoUsuario.NORMAL);

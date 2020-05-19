@@ -9,7 +9,6 @@ import main.Exception.UserNotExistException;
 import main.Exception.ContrasenyaIncorrectaException;
 import main.Exception.UserRegisterException;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.regex.Pattern;
 import javax.servlet.ServletContext;
@@ -19,7 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import main.usuarios.ListaUsuarios;
-import main.usuarios.TipoUsuario;
 import main.usuarios.Usuario;
 
 /**
@@ -48,16 +46,12 @@ public class login extends HttpServlet {
         ListaUsuarios usuariosRegistrados = (ListaUsuarios) application.getAttribute("usuariosRegistrados");
         
         try {
-            String nombreCorreo = getParameter(request, "nombreCorreo", usuariosRegistrados);
-            String contrasenya = getParameter(request, "contrasenya", usuariosRegistrados);
+            String nombreCorreo = getParameter(request, "nombreCorreo", "nombre o e-mail.",usuariosRegistrados);
+            String contrasenya = getParameter(request, "contrasenya", "contraseña.",usuariosRegistrados);
             if (esCorreo(nombreCorreo)) {
                 usuario = usuariosRegistrados.getBuscaUsuarioNickNameOrCorreo(nombreCorreo);
             } else{
                 usuario = usuariosRegistrados.getBuscaUsuarioNickNameOrCorreo(nombreCorreo);
-            }
-            
-            if(usuario == null){
-                throw new UserNotExistException(); 
             }
             
             if(!usuario.esContrasenyaCorecta(contrasenya))
@@ -78,11 +72,13 @@ public class login extends HttpServlet {
         }
     }
 
-    private String getParameter(HttpServletRequest request, String texto, ListaUsuarios usuariosRegistrados) throws UserRegisterException, SQLException {
+    private String getParameter(HttpServletRequest request, String texto, String textoException, 
+            ListaUsuarios usuariosRegistrados) throws UserRegisterException, SQLException {
         String parameter = request.getParameter(texto);
+        
 
         if (parameter.isEmpty()) {
-            throw new UserRegisterException("nombre o correo");
+            throw new UserRegisterException(textoException);
         }
 
         return parameter;

@@ -33,7 +33,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Contact</servlet-name>
-        <url-pattern>/html/contact</url-pattern>
+        <url-pattern>/html/Contact</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

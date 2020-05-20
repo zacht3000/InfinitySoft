@@ -82,8 +82,8 @@ public class register extends HttpServlet {
             if(usuariosRegistrados.yaExisteNickNameOrCorreo(parameter)){
                 throw new UserAlreadyExistsException(texto);
             }
-        } else if(texto.equals("La contrasenya")){
-            parameter = getContrasenya("contraseña", parameter);
+        } else if(texto.equals("contrasenya")){
+            parameter = getContrasenya("La contraseña", parameter);
         }
         
         return parameter;

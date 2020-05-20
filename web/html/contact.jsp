@@ -82,7 +82,7 @@
                                 <input type="text" name="nombre" id="nombre" size="30" placeholder="Nombre">
                                 <input type="text" name="apellidos" id="apellidos" size="30" placeholder="Apellidos">
                             </c:if>
-                            <select id="familia" name="familia">
+                            <select id="familia" name="area">
                                 <option value="informática" selected="selected">Informática y Comunicaciones</option>
                                 <option value="comercio">Comercio y Marketing</option>
                                 <option value="administración">Administración y Gestión</option>
@@ -90,8 +90,7 @@
                                 <option value="turismo">Turismo</option>
                                 <option value="otros">Otros</option>
                             </select>
-                            <textarea type="text" name="comentario" id="comentario" placeholder="Tu comentario"
-                                      required></textarea>
+                                <textarea type="text" name="pregunta" id="comentario" placeholder="Tu comentario" ></textarea> <!--required-->
                             <input id="send" value="Enviar" type="submit">
                         </form>
                     </div>

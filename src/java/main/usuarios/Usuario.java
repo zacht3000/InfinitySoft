@@ -12,7 +12,7 @@ package main.usuarios;
 public class Usuario {
     
     public static final String PATRON_CORREO = "^[\\w-]+(\\.[\\w-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-    public static final String PATRON_CONTRASENYA = "^[0-9]{4}";
+    public static final String PATRON_CONTRASENYA = "[0-9]{4}";
     public static final String PATRON_NICKNAME= "[A-Za-z]{4,6}";
 
     private String nickName;

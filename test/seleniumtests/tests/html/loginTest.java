@@ -24,6 +24,13 @@ public class loginTest extends SeleniumTest {
     public void accederLinkDeLogin(){
         WebElement botonInicio = driver.findElement(By.xpath("//a[@href='/InfinitySoft/html/login.jsp']"));
         botonInicio.click();
+//        driver.manage().timeouts().implicitlyWait(1500, TimeUnit.SECONDS);
+        try {
+            Thread.sleep(1000);
+        } catch (Exception e) {
+            
+        }
+        
     }
     
     @Test
@@ -36,16 +43,17 @@ public class loginTest extends SeleniumTest {
     public void testComprobarDatoVacioNombreCorreo() {
         WebElement enviar = driver.findElement(By.cssSelector("input[type='submit']"));
         enviar.click();
-        assertEquals("Introduce tu nombre o e-mail.", driver.findElement(By.xpath("//*[@id='error']")).getText());
+        String error = driver.findElement(By.id("error")).getText();
+        assertEquals("Introduce tu nombre o e-mail.", error);
     }
     
     @Test
     public void testComprobarDatoVacioContrasenya() {
         WebElement text = driver.findElement(By.cssSelector("input[type='text']"));
         text.sendKeys("User1");
-        WebElement enviar2 = driver.findElement(By.cssSelector("input[type='submit']"));
-        enviar2.click();
-        assertEquals("Introduce tu contraseña.", driver.findElement(By.xpath("//*[@id='error']")).getText());
+        driver.findElement(By.cssSelector("input[type='submit']")).click();
+        String error = driver.findElement(By.id("error")).getText();
+        assertEquals("Introduce tu contraseña.", error);
     }
     
 }

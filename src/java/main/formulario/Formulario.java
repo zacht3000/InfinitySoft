@@ -5,7 +5,6 @@
  */
 package main.formulario;
 
-import main.usuarios.TipoUsuario;
 
 /**
  *
@@ -18,16 +17,19 @@ public class Formulario {
     private String nombre;
     private String apellidos;
     private String correo;
-    private String respuesta;
+    private String area;
+
+    private String pregunta;
     
-    public Formulario(int id, String nickname, String nombre, 
-            String apellidos, String correo, String respuesta){
+    public Formulario(int id, String nickname, String nombre, String apellidos, 
+            String correo, String area, String pregunta){
         this.id = id;
         this.nickname = nickname;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.correo = correo;
-        this.respuesta = respuesta;
+        this.area = area;
+        this.pregunta = pregunta;
     }
 
     public int getId() {
@@ -49,9 +51,13 @@ public class Formulario {
     public String getCorreo() {
         return correo;
     }
+    
+    public String getArea() {
+        return area;
+    }
 
-    public String getRespuesta() {
-        return respuesta;
+    public String getPregunta() {
+        return pregunta;
     }
    
     

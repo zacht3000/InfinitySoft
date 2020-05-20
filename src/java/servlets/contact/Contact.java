@@ -44,7 +44,7 @@ public class Contact extends HttpServlet {
         ListaFormulario formulariosRegistrados = (ListaFormulario) application.getAttribute("formulariosRegistrados");
 
         Usuario usuario = (Usuario) session.getAttribute("usuario");
-        String nombre, apellidos, nickname, correo, respuesta;
+        String nombre, apellidos, nickname, correo, area, pregunta;
         try {
             if (session.getAttribute("usuario") == null) {
                 ListaUsuarios listaUsuarios = (ListaUsuarios) application.getAttribute("usuariosRegistrados");
@@ -59,10 +59,13 @@ public class Contact extends HttpServlet {
                 apellidos = usuario.getApellidos();
                 correo = usuario.getCorreo();
             }
-
-            respuesta = getParameter(request, "respuesta");
-            formulariosRegistrados.mete(new Formulario(formulariosRegistrados.getIdSiguiente(), nickname, nombre, apellidos, correo, respuesta));
-
+            area = getParameter(request, "area");
+            pregunta = getParameter(request, "pregunta");
+            
+            formulariosRegistrados.mete(new Formulario(formulariosRegistrados.getIdSiguiente(), nickname, nombre, apellidos, correo, area, pregunta));
+            
+            request.setAttribute("messageCorrect", "Se ha enviado al equipo de soporte su duda, no tardaremos en respoder.");
+            application.getRequestDispatcher("/html/contact.jsp").forward(request, response);
         } catch (UserRegisterException | UserNotExistException ex) {
             request.setAttribute("messageError", ex.getMessage());
             application.getRequestDispatcher("/html/contact.jsp").forward(request, response);

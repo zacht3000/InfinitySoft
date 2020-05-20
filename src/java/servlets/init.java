@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
+import main.formulario.ListaFormulario;
 
 /**
  *
@@ -43,6 +44,9 @@ public class init extends HttpServlet {
         // Creación de variables de aplicación
         ListaUsuarios usuariosRegistrados = new ListaUsuarios(dataSource);
         application.setAttribute("usuariosRegistrados", usuariosRegistrados);
+        
+        ListaFormulario formulariosRegistrados = new ListaFormulario(dataSource);
+        application.setAttribute("formulariosRegistrados", formulariosRegistrados);
         
         // Salto al JSP
         response.sendRedirect(request.getContextPath() + "/index.jsp");

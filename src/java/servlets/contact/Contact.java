@@ -7,10 +7,19 @@ package servlets.contact;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import main.Exception.UserNotExistException;
+import main.Exception.UserRegisterException;
+import main.formulario.Formulario;
+import main.formulario.ListaFormulario;
+import main.usuarios.ListaUsuarios;
+import main.usuarios.Usuario;
 
 /**
  *
@@ -30,18 +39,49 @@ public class Contact extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Contact</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Contact at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        HttpSession session = request.getSession();
+        ServletContext application = getServletContext();
+        ListaFormulario formulariosRegistrados = (ListaFormulario) application.getAttribute("formulariosRegistrados");
+
+        Usuario usuario = (Usuario) session.getAttribute("usuario");
+        String nombre, apellidos, nickname, correo, respuesta;
+        try {
+            if (session.getAttribute("usuario") == null) {
+                ListaUsuarios listaUsuarios = (ListaUsuarios) application.getAttribute("usuariosRegistrados");
+                Usuario usuariosAnonimo = listaUsuarios.getBuscaUsuarioNickNameOrCorreo("anonimo");
+                nickname = usuariosAnonimo.getNickName();
+                nombre = getParameter(request, "nombre");
+                apellidos = getParameter(request, "apellidos");
+                correo = usuariosAnonimo.getCorreo();
+            } else {
+                nickname = usuario.getNickName();
+                nombre = usuario.getNombre();
+                apellidos = usuario.getApellidos();
+                correo = usuario.getCorreo();
+            }
+
+            respuesta = getParameter(request, "respuesta");
+            formulariosRegistrados.mete(new Formulario(formulariosRegistrados.getIdSiguiente(), nickname, nombre, apellidos, correo, respuesta));
+
+        } catch (UserRegisterException | UserNotExistException ex) {
+            request.setAttribute("messageError", ex.getMessage());
+            application.getRequestDispatcher("/html/contact.jsp").forward(request, response);
+        }catch (SQLException ex) {
+            // Mandamos el mensaje de error al jsp donde se mostrará
+            request.setAttribute("messageError", "Error al consultar la base de datos. Inténtelo más tarde");
+            application.getRequestDispatcher("/html/contact.jsp").forward(request, response);
         }
+    }
+    
+    private String getParameter(HttpServletRequest request, String texto) throws UserRegisterException, SQLException {
+        String parameter = request.getParameter(texto);
+        
+
+        if (parameter.isEmpty()) {
+            throw new UserRegisterException(texto);
+        }
+
+        return parameter;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

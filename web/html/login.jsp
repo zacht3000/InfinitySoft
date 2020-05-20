@@ -62,6 +62,9 @@
             <c:if test="${not empty messageError}">
                 <div class="Error" style="color:white"><p id="error">${messageError}</p></div>
             </c:if> 
+            <c:if test="${not empty messageCorrect}">
+                <div class="Error" style="color:white"><p id="correcto">${messageCorrect}</p></div>
+            </c:if> 
             <c:if test="${sessionScope.usuario ne null}">
                 <c:redirect url="/index.jsp" context="/InfinitySoft"></c:redirect>
             </c:if>

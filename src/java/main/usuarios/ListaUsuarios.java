@@ -40,10 +40,10 @@ public class ListaUsuarios {
                     while (resultSet.next()) {
 
                         String nickName = resultSet.getString("nickname");
-                        String correo = resultSet.getString("correo");;
-                        String nombre = resultSet.getString("nombre");;
-                        String apellidos = resultSet.getString("apellidos");;
-                        String contraseña = resultSet.getString("contrasenya");;
+                        String correo = resultSet.getString("correo");
+                        String nombre = resultSet.getString("nombre");
+                        String apellidos = resultSet.getString("apellidos");
+                        String contraseña = resultSet.getString("contrasenya");
                         TipoUsuario tipo = TipoUsuario.tipoSegunTexto(resultSet.getString("tipo"));
 
                         usuarios.add((new Usuario(nickName, correo, nombre, apellidos, contraseña, tipo)));

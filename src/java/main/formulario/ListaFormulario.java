@@ -36,13 +36,15 @@ public class ListaFormulario {
 
                     while (resultSet.next()) {
                         int id = resultSet.getInt("id");
+                        String nickname = resultSet.getString("nickname");
                         String nombre = resultSet.getString("nombre");
                         String apellidos = resultSet.getString("apellidos");
                         String correo = resultSet.getString("correo");
-                        String respuesta = resultSet.getString("area");
-                        String nickname = resultSet.getString("nickname");
+                        String area = resultSet.getString("area");
+                        String pregunta = resultSet.getString("pregunta");
+                        
 
-                        formularios.add((new Formulario(id, nickname, nombre, apellidos, correo, respuesta)));
+                        formularios.add((new Formulario(id, nickname, nombre, apellidos, correo, area,pregunta)));
                     }
                 }
             }
@@ -58,7 +60,8 @@ public class ListaFormulario {
                 + formulario.getNombre() + "', '"
                 + formulario.getApellidos() + "', '"
                 + formulario.getCorreo() + "', '"
-                + formulario.getRespuesta() + "')";
+                + formulario.getArea() + "', '"
+                + formulario.getPregunta() + "')";
 
         try (Connection connection = this.dataSource.getConnection()) {
             try (Statement statement = connection.createStatement()) {

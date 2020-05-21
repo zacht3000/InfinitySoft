@@ -23,13 +23,7 @@ public class loginTest extends SeleniumTest {
     @Before
     public void accederLinkDeLogin(){
         WebElement botonInicio = driver.findElement(By.xpath("//a[@href='/InfinitySoft/html/login.jsp']"));
-        botonInicio.click();
-//        driver.manage().timeouts().implicitlyWait(1500, TimeUnit.SECONDS);
-        try {
-            Thread.sleep(1000);
-        } catch (Exception e) {
-            
-        }
+        clickAndWait(botonInicio);
         
     }
     
@@ -41,19 +35,31 @@ public class loginTest extends SeleniumTest {
     
     @Test
     public void testComprobarDatoVacioNombreCorreo() {
-        WebElement enviar = driver.findElement(By.cssSelector("input[type='submit']"));
-        enviar.click();
-        String error = driver.findElement(By.id("error")).getText();
-        assertEquals("Introduce tu nombre o e-mail.", error);
+        clickAndWait(driver.findElement(By.id("send")));
+        assertEquals("Introduce tu nombre o e-mail.", driver.findElement(By.id("error")).getText());
     }
     
     @Test
     public void testComprobarDatoVacioContrasenya() {
-        WebElement text = driver.findElement(By.cssSelector("input[type='text']"));
-        text.sendKeys("User1");
-        driver.findElement(By.cssSelector("input[type='submit']")).click();
-        String error = driver.findElement(By.id("error")).getText();
-        assertEquals("Introduce tu contraseña.", error);
+        driver.findElement(By.id("nombre")).sendKeys("User1");
+        clickAndWait(driver.findElement(By.id("send")));
+        assertEquals("Introduce tu contraseña.", driver.findElement(By.id("error")).getText());
+    }
+    
+    @Test
+    public void testComprobarContrasenyaIncorrecta(){
+        driver.findElement(By.id("nombre")).sendKeys("admin");
+        driver.findElement(By.id("contrasenya")).sendKeys("admi");
+        clickAndWait(driver.findElement(By.id("send")));
+        assertEquals("Contraseña incorrecta pruebe de nuevo.", driver.findElement(By.id("error")).getText());
+    }
+    
+    @Test
+    public void testComprobarUsuarioCorrecto(){
+        driver.findElement(By.id("nombre")).sendKeys("admin");
+        driver.findElement(By.id("contrasenya")).sendKeys("admin");
+        clickAndWait(driver.findElement(By.id("send")));
+        assertEquals("admin", driver.findElement(By.id("user")).getText());
     }
     
 }

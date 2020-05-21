@@ -8,6 +8,7 @@ package seleniumtests;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import util.RunOracleScript;
 
@@ -33,6 +34,18 @@ public abstract class SeleniumTest {
     
     private void resetBD() {
         new RunOracleScript("db.properties", "InfinitySoft_Test.sql").run();
+    }
+    
+    protected void clickAndWait(WebElement webElement) {
+        
+        webElement.click();
+        
+        try {
+            Thread.sleep(2000);
+        }
+        catch (InterruptedException ex) {
+            
+        }
     }
     
     @After

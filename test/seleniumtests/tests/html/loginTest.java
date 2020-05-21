@@ -56,19 +56,21 @@ public class loginTest extends SeleniumTest {
     
     @Test
     public void testComprobarUsuarioCorrecto(){
-        driver.findElement(By.id("nombre")).sendKeys("admin");
-        driver.findElement(By.id("contrasenya")).sendKeys("admin");
-        clickAndWait(driver.findElement(By.id("send")));
+        loginAdmin();
         assertEquals("admin", driver.findElement(By.id("user")).getText());
     }
     
     @Test
     public void testComprobarUsuarioCerrarSession(){
+        loginAdmin();
+        clickAndWait(driver.findElement(By.id("closeSession")));
+        assertEquals("ENTRAR", driver.findElement(By.id("login")).getText());
+    }
+    
+    public void loginAdmin(){
         driver.findElement(By.id("nombre")).sendKeys("admin");
         driver.findElement(By.id("contrasenya")).sendKeys("admin");
         clickAndWait(driver.findElement(By.id("send")));
-        clickAndWait(driver.findElement(By.id("closeSession")));
-        assertEquals("ENTRAR", driver.findElement(By.id("login")).getText());
     }
     
 }

@@ -52,7 +52,7 @@
                             </c:if>
                             <c:if test="${sessionScope.usuario ne null}">
                             <li class="item button"><a href="${pageContext.request.contextPath}/html/login.jsp">${sessionScope.usuario.getNickName()}</a></li>
-                            <li class="item button secondary"><a href="${pageContext.request.contextPath}/html/closeSession.jsp">CERRAR SESIÓN</a></li>
+                            <li class="item button secondary"><a id="closeSession" href="${pageContext.request.contextPath}/html/closeSession.jsp">CERRAR SESIÓN</a></li>
                             </c:if>
                         <li class="toggle"><a href="#" onclick="myFunction()"><i id="icon" class="fas fa-bars"></i></a></li>
                     </ul>

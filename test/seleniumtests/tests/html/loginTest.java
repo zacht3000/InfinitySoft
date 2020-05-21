@@ -62,4 +62,13 @@ public class loginTest extends SeleniumTest {
         assertEquals("admin", driver.findElement(By.id("user")).getText());
     }
     
+    @Test
+    public void testComprobarUsuarioCerrarSession(){
+        driver.findElement(By.id("nombre")).sendKeys("admin");
+        driver.findElement(By.id("contrasenya")).sendKeys("admin");
+        clickAndWait(driver.findElement(By.id("send")));
+        clickAndWait(driver.findElement(By.id("closeSession")));
+        assertEquals("ENTRAR", driver.findElement(By.id("login")).getText());
+    }
+    
 }

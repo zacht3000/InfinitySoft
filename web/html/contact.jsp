@@ -15,7 +15,7 @@
         <meta name="description" content="InfinitySoft">
         <meta name="keywords" content="InfinitySoft, work, trabajo, 
               Web design, diseño web, web hosting, alojamiento web, ecommerce, comercio electronico">
-        <link rel="shortcut icon" type="img/ico" href="media/img/ico/favicon.ico" />
+        <link rel="shortcut icon" type="img/ico" href="${pageContext.request.contextPath}/media/img/ico/favicon.ico" />
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="css/style.css" />

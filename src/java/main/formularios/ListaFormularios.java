@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main.formulario;
+package main.formularios;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -16,13 +16,13 @@ import javax.sql.DataSource;
  *
  * @author Santiago Naranjo Marcillo
  */
-public class ListaFormulario {
+public class ListaFormularios {
     
     private static final String NOMBRE_TABLA = "FORMULARIO";
     private ArrayList<Formulario> formularios;
     private DataSource dataSource;
     
-    public ListaFormulario(DataSource dataSource){
+    public ListaFormularios(DataSource dataSource){
         this.dataSource = dataSource;
     }
     

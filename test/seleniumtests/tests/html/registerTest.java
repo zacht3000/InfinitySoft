@@ -9,9 +9,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import seleniumtests.SeleniumTest;
-import seleniumtests.tests.index.IndexTest;
 
 /**
  *
@@ -32,6 +30,13 @@ public class registerTest extends SeleniumTest{
     @Test
     public void testComprobarDatoVacioNombreCorreo() {
         clickAndWait(driver.findElement(By.id("send")));
-        assertEquals("Introduce tu nombre de usuario.", driver.findElement(By.id("error")).getText());
+        assertEquals("Introduce tu nickname.", driver.findElement(By.id("error")).getText());
+    }
+    
+    @Test
+    public void testComprobarDatoVacioNombre() {
+        driver.findElement(By.id("nickname")).sendKeys("User");
+        clickAndWait(driver.findElement(By.id("send")));
+        assertEquals("Introduce tu nombre.", driver.findElement(By.id("error")).getText());
     }
 }

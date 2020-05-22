@@ -62,7 +62,7 @@
                 <div style="color:white">${messageCorrect}</div>
             </c:if>
             <c:if test="${not empty messageError}">
-                <div style="color:white">${messageError}</div>
+                <div style="color:white" id="error">${messageError}</div>
             </c:if>
             <c:if test="${sessionScope.usuario ne null}">
                 <c:redirect url="/index.jsp" context="/InfinitySoft"></c:redirect>
@@ -73,7 +73,7 @@
                 <label for="apellidos" style="color:white">Apellidos </label><input type="text" name="apellidos"/><br/>
                 <label for="correo" style="color:white">E-mail: </label><input type="text" name="correo"/><br/>
                 <label for="contrasenya" style="color:white">Contraseña: </label><input type="password" name="contrasenya"/><br/>
-                <input type="submit" value="Registrarse"/><br/>
+                <input type="submit" id="send" value="Registrarse"/><br/>
             </form>
             <div class="social_media">
                 <article>

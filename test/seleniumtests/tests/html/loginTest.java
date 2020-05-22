@@ -22,8 +22,7 @@ public class loginTest extends SeleniumTest {
     
     @Before
     public void accederLinkDeLogin(){
-        WebElement botonInicio = driver.findElement(By.xpath("//a[@href='/InfinitySoft/html/login.jsp']"));
-        clickAndWait(botonInicio);
+        clickAndWait(driver.findElement(By.id("login")));
         
     }
     

@@ -68,11 +68,11 @@
                 <c:redirect url="/index.jsp" context="/InfinitySoft"></c:redirect>
             </c:if>
             <form action="register" method="POST">
-                <label for="nickname" style="color:white">Nombre de usuario: </label><input type="text" name="nickname"/><br/>
-                <label for="nombre" style="color:white">Nombre: </label><input type="text" name="nombre"/><br/>
-                <label for="apellidos" style="color:white">Apellidos </label><input type="text" name="apellidos"/><br/>
-                <label for="correo" style="color:white">E-mail: </label><input type="text" name="correo"/><br/>
-                <label for="contrasenya" style="color:white">Contraseña: </label><input type="password" name="contrasenya"/><br/>
+                <label for="nickname" style="color:white">Nombre de usuario: </label><input type="text" id="nickname" name="nickname"/><br/>
+                <label for="nombre" style="color:white">Nombre: </label><input id="nombre" type="text" name="nombre"/><br/>
+                <label for="apellidos" style="color:white">Apellidos </label><input id="apellidos" type="text" name="apellidos"/><br/>
+                <label for="correo" style="color:white">E-mail: </label><input id="correo" type="text" name="correo"/><br/>
+                <label for="contrasenya" style="color:white">Contraseña: </label><input id="contrasenya" type="password" name="contrasenya"/><br/>
                 <input type="submit" id="send" value="Registrarse"/><br/>
             </form>
             <div class="social_media">

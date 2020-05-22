@@ -20,17 +20,9 @@ public class IndexTest extends SeleniumTest {
     
     @Test
     public void testBotonInicialLlevaAMenuInicial() {
-        
-        WebElement botonInicio = driver.findElement(By.cssSelector("input[type='submit']"));
-        botonInicio.click();
         String titulo = driver.getTitle();
        
-        assertEquals("InfinitySoft", titulo);
+        assertEquals("INFINITYSOFT", titulo);
     }
     
-    @Test
-    public void testComprobarTituloPáginaInicial() {
-        
-        //assertEquals("ITV DAW", driver.getTitle());
-    }
 }

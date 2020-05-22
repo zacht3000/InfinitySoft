@@ -69,7 +69,7 @@ public class register extends HttpServlet {
         String parameter = request.getParameter(texto);
         
         if(parameter.isEmpty()) {
-            throw new UserRegisterException(texto);
+            throw new UserRegisterException("Nombre de usuario");
         }
         
         if(texto.equals("correo")){

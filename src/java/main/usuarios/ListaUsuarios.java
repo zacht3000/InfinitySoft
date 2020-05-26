@@ -51,8 +51,6 @@ public class ListaUsuarios {
                 }
             }
         }
-
-
         return usuarios;   
     }
     
@@ -89,8 +87,12 @@ public class ListaUsuarios {
         if (usuario.isPresent()) {
             return usuario.get();
         }
-
+        
         throw new UserNotExistException();
+    }
+    
+    public boolean listaUsuarioNoAdminAnonimo() throws SQLException{
+        return getUsuarios().size() <= 2;
     }
 
     

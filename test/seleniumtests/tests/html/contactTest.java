@@ -18,15 +18,16 @@ import seleniumtests.SeleniumTest;
 public class contactTest extends SeleniumTest{
     
     private static final String NOMBRE_Y_APELLIDO_ANONIMO = "Usuario";
+    private static final String ADMIN = "admin";
     private static final String ERROR_NOMBRE = "nombre";
     private static final String ERROR_APELLIDOS = "apellidos";
     private static final String ERROR_PREGUNTA = "pregunta";
     private static final String ID_COMENTARIO = "comentario";
+    private static final String ID_CONTRASENYA = "contrasenya";
     
     @Before
     public void accederLinkDeContact(){
-       clickAndWait(driver.findElement(By.id("icon")));
-       clickAndWait(driver.findElement(By.id("contact")));
+       accederContact();
     }
 
     @Test
@@ -57,6 +58,38 @@ public class contactTest extends SeleniumTest{
         añadirParametro(ID_COMENTARIO, NOMBRE_Y_APELLIDO_ANONIMO);
         clickSend();
         assertCorrecto();
+    }
+    
+    @Test
+    public void testDatoVacioParaAdminPregunta(){
+        logearse();
+        clickSend();
+        assertError(ERROR_PREGUNTA);
+        
+    }
+    
+    @Test
+    public void testEnviarDatosAdmin(){
+        logearse();
+        clickSend();
+        añadirParametro(ID_COMENTARIO, NOMBRE_Y_APELLIDO_ANONIMO);
+        clickSend();
+        assertCorrecto();
+        
+    }
+    
+    public void accederContact(){
+       clickAndWait(driver.findElement(By.id("icon")));
+       clickAndWait(driver.findElement(By.id("contact")));
+    }
+    
+
+    public void logearse(){
+        clickAndWait(driver.findElement(By.id("login")));
+        añadirParametro(ERROR_NOMBRE, ADMIN);
+        añadirParametro(ID_CONTRASENYA, ADMIN);
+        clickSend();
+        accederContact();
     }
     
 //    @Test

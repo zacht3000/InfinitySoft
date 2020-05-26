@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import main.Exception.UserNotExistException;
 import main.Exception.UserRegisterException;
-import main.formulario.Formulario;
-import main.formulario.ListaFormulario;
+import main.formularios.Formulario;
+import main.formularios.ListaFormularios;
 import main.usuarios.ListaUsuarios;
 import main.usuarios.Usuario;
 
@@ -41,7 +41,7 @@ public class Contact extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession();
         ServletContext application = getServletContext();
-        ListaFormulario formulariosRegistrados = (ListaFormulario) application.getAttribute("formulariosRegistrados");
+        ListaFormularios formulariosRegistrados = (ListaFormularios) application.getAttribute("formulariosRegistrados");
 
         Usuario usuario = (Usuario) session.getAttribute("usuario");
         String nombre, apellidos, nickname, correo, area, pregunta;

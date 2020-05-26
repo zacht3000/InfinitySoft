@@ -42,7 +42,7 @@
                         <li class="item"><a href="${pageContext.request.contextPath}/index.jsp">INICIO</a></li>
                         <li class="item"><a href="#">SUSCRIPCIONES</a></li>
                         <li class="item"><a href="#">PLANTILLA</a></li>
-                        <li class="item"><a href="${pageContext.request.contextPath}/html/contact.jsp">CONTACTO</a></li>
+                        <li class="item"><a id="contact" href="${pageContext.request.contextPath}/html/contact.jsp">CONTACTO</a></li>
                         <li class="item"><a href="#">SOBRE NOSOTROS</a></li>
                         <li class="item"><a href="${pageContext.request.contextPath}/html/blog.html">BLOG</a>
                         </li>

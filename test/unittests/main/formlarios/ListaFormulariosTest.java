@@ -5,8 +5,11 @@
  */
 package unittests.main.formlarios;
 
+import java.sql.SQLException;
 import main.formularios.ListaFormularios;
+import org.junit.Test;
 import unittests.UnitTest;
+import static org.junit.Assert.*;
 
 /**
  *
@@ -20,5 +23,16 @@ public class ListaFormulariosTest extends UnitTest{
         super();
         this.listaFormulario = new ListaFormularios(this.dataSource);
     }
+    
+    @Test
+    public void testGetIdSiguiente(){
+        try{
+            assertEquals(1, listaFormulario.getIdSiguiente());
+        }catch(SQLException ex){
+            fail();
+        }
+        
+    }
+    
     
 }

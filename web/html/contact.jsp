@@ -75,7 +75,7 @@
                             <div class="Error" style="color:white"><p id="error">${messageError}</p></div>
                         </c:if> 
                         <c:if test="${not empty messageCorrect}">
-                            <div class="Error" style="color:white"><p id="correcto">${messageCorrect}</p></div>
+                            <div class="Correct" style="color:white"><p id="correcto">${messageCorrect}</p></div>
                         </c:if> 
                         <form id="container_information_formular_contact" action="Contact" method="post">
                             <c:if test="${sessionScope.usuario eq null}">

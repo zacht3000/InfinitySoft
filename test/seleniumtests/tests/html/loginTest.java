@@ -23,7 +23,6 @@ public class loginTest extends SeleniumTest {
     @Before
     public void accederLinkDeLogin(){
         clickAndWait(driver.findElement(By.id("login")));
-        
     }
     
     @Test

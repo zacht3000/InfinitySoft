@@ -16,9 +16,9 @@ public enum TipoUsuario {
     
      public static final TipoUsuario tipoSegunTexto(String tipo) {
         
-         if(tipo.equals(NORMAL))
+         if(tipo.equals("NORMAL"))
              return NORMAL;
-         else if(tipo.equals(ADMINISTRADOR))
+         else if(tipo.equals("ADMINISTRADOR"))
              return ADMINISTRADOR;
          else
              return null;

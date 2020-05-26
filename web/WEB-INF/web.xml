@@ -19,6 +19,10 @@
         <servlet-name>Contact</servlet-name>
         <servlet-class>servlets.contact.Contact</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManageUsers</servlet-name>
+        <servlet-class>servlets.manageUsers.ManageUsers</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>init</servlet-name>
         <url-pattern>/init</url-pattern>
@@ -34,6 +38,10 @@
     <servlet-mapping>
         <servlet-name>Contact</servlet-name>
         <url-pattern>/html/Contact</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManageUsers</servlet-name>
+        <url-pattern>/html/ManageUsers</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

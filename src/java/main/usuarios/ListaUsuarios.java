@@ -124,6 +124,18 @@ public class ListaUsuarios {
             }
         }
     }
+    
+    public void borrarUsuario(Usuario usuario) throws SQLException {
+        String sentenciaSQL = "DELETE FROM " + NOMBRE_TABLA + " WHERE " 
+                + NOMBRE_COLUMNA_NICKNAME + " = '"
+                + usuario.getNickName() + "'";
+
+        try (Connection connection = this.dataSource.getConnection()) {
+            try (Statement statement = connection.createStatement()) {
+                statement.executeUpdate(sentenciaSQL);
+            }
+        }
+    }
 
     
 }

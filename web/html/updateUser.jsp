@@ -76,6 +76,10 @@
                 <label for="contrasenya" style="color:white">Contraseña: </label><input id="contrasenya" type="text" name="contrasenya" value="${updateUser.getContrasenya()}"/><br/>
                 <input type="submit" id="send" value="Guardar Cambios"/><br/>
             </form>
+            <form action="DeleteUser" method="POST">
+                <input type="hidden" value="${updateUser.getNickName()}" name="Eliminar">
+                <input type="submit" id="send" value="Eliminar Cuenta"/><br/>
+            </form>
             <div class="social_media">
                 <article>
                     <h2>CONTACTO</h2>

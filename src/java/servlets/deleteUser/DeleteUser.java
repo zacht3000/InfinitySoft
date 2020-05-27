@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import main.Exception.UserNotExistException;
 import main.Exception.UserRegisterException;
 import main.usuarios.ListaUsuarios;
@@ -36,13 +37,14 @@ public class DeleteUser extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         ServletContext application = getServletContext();
+        HttpSession session = request.getSession();
         ListaUsuarios usuariosRegistrados =  (ListaUsuarios) application.getAttribute("usuariosRegistrados");
         try {
             String nickName = request.getParameter("Eliminar");
             if(nickName.isEmpty())
                  throw new UserRegisterException("usuario");
             usuariosRegistrados.borrarUsuario(usuariosRegistrados.getBuscaUsuarioNickNameOrCorreo(nickName));
-            request.setAttribute("messageCorrect", "Registrado correctamente.");
+            session.setAttribute("messageCorrect", "Se han un borrado");
             application.getRequestDispatcher("/html/manageUsers.jsp").forward(request, response);
         } catch (UserNotExistException | UserRegisterException ex) {
             request.setAttribute("messageError", ex.getMessage());

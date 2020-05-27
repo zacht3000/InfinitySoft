@@ -55,9 +55,9 @@ public class UpdateUser extends HttpServlet {
 
                 Usuario usuario = new Usuario(nickname, correo, nombre, apellidos, contrasenya, TipoUsuario.NORMAL);
                 usuariosRegistrados.modificarUsuario(usuario);
-                request.setAttribute("messageCorrect", "Registrado correctamente.");
-                
+               
                 session.removeAttribute("updateUser");
+                session.setAttribute("messageCorrect", "Se han guardado los usuarios " + usuario.getNickName() + "(" + usuario.getCorreo() + ")");
                 application.getRequestDispatcher("/html/manageUsers.jsp").forward(request, response);
         } catch (UserRegisterException | AttributesRequirementsException | UserAlreadyExistsException ex) {
             request.setAttribute("messageError", ex.getMessage());

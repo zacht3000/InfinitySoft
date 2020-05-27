@@ -65,13 +65,17 @@
                 <c:redirect url="/index.jsp" context="/InfinitySoft"></c:redirect>
             </c:if>
             <c:if test="${usuariosRegistrados.listaUsuarioNoAdminAnonimo()}">
+                <br>
+                <br>
                 <p style="color: white">No hay usuarios</p>
             </c:if>
             <c:if test="${!usuariosRegistrados.listaUsuarioNoAdminAnonimo()}">
             <form action="ManageUsers" method="POST">
                     <c:forEach items="${usuariosRegistrados.getUsuarios()}" var="usuarios">
                         <c:if test="${usuarios.getNickName() ne 'admin' and usuarios.getNickName() ne 'anonimo'}">
-                            <input type="radio" value="${usuarios.getNickName()}" name="manageUser"><p style="color: white">${usuarios.getNickName()}(${usuarios.getCorreo()})</p>
+                            <br>
+                            <br>
+                            <input type="radio" value="${usuarios.getNickName()}" name="manageUser">${usuarios.getNickName()}(${usuarios.getCorreo()})
                             <input type="submit" id="send">
                         </c:if>
                     </c:forEach>

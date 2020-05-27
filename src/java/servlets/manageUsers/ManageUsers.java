@@ -39,10 +39,11 @@ public class ManageUsers extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         ServletContext application = getServletContext();
         ListaUsuarios usuariosRegistrados = (ListaUsuarios) application.getAttribute("usuariosRegistrados");
+        HttpSession session = request.getSession();
         
         try {
             String nombre = getParameter(request, "manageUser", "usuario");
-            application.setAttribute("updateUser", usuariosRegistrados.getBuscaUsuarioNickNameOrCorreo(nombre));
+            session.setAttribute("updateUser", usuariosRegistrados.getBuscaUsuarioNickNameOrCorreo(nombre));
             response.sendRedirect("/InfinitySoft/html/updateUser.jsp");
         } catch (UserRegisterException | UserNotExistException ex) {
             request.setAttribute("messageError", ex.getMessage());

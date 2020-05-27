@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import main.Exception.AttributesRequirementsException;
 import main.Exception.UserAlreadyExistsException;
 import main.Exception.UserNotExistException;
@@ -42,7 +43,9 @@ public class UpdateUser extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         ServletContext application = getServletContext();
         ListaUsuarios usuariosRegistrados =  (ListaUsuarios) application.getAttribute("usuariosRegistrados");
-        Usuario usuarioAEditar = (Usuario) application.getAttribute("updateUser");
+        HttpSession session = request.getSession();
+        Usuario usuarioAEditar = (Usuario) session.getAttribute("updateUser");
+
         try {
                 String nickname = getParameter(request, "nickname", usuariosRegistrados, usuarioAEditar);
                 String nombre = getParameter(request, "nombre", usuariosRegistrados, usuarioAEditar);
@@ -53,6 +56,8 @@ public class UpdateUser extends HttpServlet {
                 Usuario usuario = new Usuario(nickname, correo, nombre, apellidos, contrasenya, TipoUsuario.NORMAL);
                 usuariosRegistrados.modificarUsuario(usuario);
                 request.setAttribute("messageCorrect", "Registrado correctamente.");
+                
+                session.removeAttribute("updateUser");
                 application.getRequestDispatcher("/html/manageUsers.jsp").forward(request, response);
         } catch (UserRegisterException | AttributesRequirementsException | UserAlreadyExistsException ex) {
             request.setAttribute("messageError", ex.getMessage());

@@ -69,15 +69,15 @@
                 <c:redirect url="/index.jsp" context="/InfinitySoft"></c:redirect>
             </c:if>
             <form action="UpdateUser" method="POST">
-                <label for="nickname" style="color:white">Nombre de usuario: </label><input type="text" id="nickname" name="nickname" value="${updateUser.getNickName()}"/><br/>
-                <label for="nombre" style="color:white">Nombre: </label><input id="nombre" type="text" name="nombre" value="${updateUser.getNombre()}"/><br/>
-                <label for="apellidos" style="color:white">Apellidos </label><input id="apellidos" type="text" name="apellidos" value="${updateUser.getApellidos()}"/><br/>
-                <label for="correo" style="color:white">E-mail: </label><input id="correo" type="text" name="correo" value="${updateUser.getCorreo()}"/><br/>
-                <label for="contrasenya" style="color:white">Contraseña: </label><input id="contrasenya" type="text" name="contrasenya" value="${updateUser.getContrasenya()}"/><br/>
+                <label for="nickname" style="color:white">Nombre de usuario: </label><input type="text" id="nickname" name="nickname" value="${sessionScope.updateUser.getNickName()}"/><br/>
+                <label for="nombre" style="color:white">Nombre: </label><input id="nombre" type="text" name="nombre" value="${sessionScope.updateUser.getNombre()}"/><br/>
+                <label for="apellidos" style="color:white">Apellidos </label><input id="apellidos" type="text" name="apellidos" value="${sessionScope.updateUser.getApellidos()}"/><br/>
+                <label for="correo" style="color:white">E-mail: </label><input id="correo" type="text" name="correo" value="${sessionScope.updateUser.getCorreo()}"/><br/>
+                <label for="contrasenya" style="color:white">Contraseña: </label><input id="contrasenya" type="text" name="contrasenya" value="${sessionScope.updateUser.getContrasenya()}"/><br/>
                 <input type="submit" id="send" value="Guardar Cambios"/><br/>
             </form>
             <form action="DeleteUser" method="POST">
-                <input type="hidden" value="${updateUser.getNickName()}" name="Eliminar">
+                <input type="hidden" value="${sessionScope.updateUser.getNickName()}" name="Eliminar">
                 <input type="submit" id="send" value="Eliminar Cuenta"/><br/>
             </form>
             <div class="social_media">

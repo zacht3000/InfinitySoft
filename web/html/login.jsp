@@ -44,8 +44,7 @@
                         <li class="item"><a href="#">PLANTILLA</a></li>
                         <li class="item"><a href="${pageContext.request.contextPath}/html/contacto.html">CONTACTO</a></li>
                         <li class="item"><a href="#">SOBRE NOSOTROS</a></li>
-                        <li class="item"><a href="${pageContext.request.contextPath}/html/blog.html">BLOG</a>
-                        </li>
+                        <li class="item"><a href="${pageContext.request.contextPath}/html/blog.html">BLOG</a></li>
                         <c:if test="${sessionScope.usuario eq null}">
                             <li class="item button"><a href="${pageContext.request.contextPath}/html/login.jsp">ENTRAR</a></li>
                             <li class="item button secondary"><a href="${pageContext.request.contextPath}/html/register.jsp">REGISTRARSE</a></li>

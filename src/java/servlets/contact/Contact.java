@@ -19,6 +19,7 @@ import main.Exception.UserRegisterException;
 import main.formularios.Formulario;
 import main.formularios.ListaFormularios;
 import main.usuarios.ListaUsuarios;
+import main.usuarios.TipoUsuario;
 import main.usuarios.Usuario;
 
 /**

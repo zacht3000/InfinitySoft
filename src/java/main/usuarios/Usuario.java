@@ -60,4 +60,9 @@ public class Usuario {
             return this.getContrasenya().equals(contrasenya);
     }
     
+    @Override
+    public String toString() {
+        return getNickName() + " " + getNombre(); //To change body of generated methods, choose Tools | Templates.
+    }  
+    
 }

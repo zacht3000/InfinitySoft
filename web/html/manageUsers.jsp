@@ -64,14 +64,14 @@
             <c:if test="${sessionScope.usuario.getTipo() ne TipoUsuario.ADMINISTRADOR}">
                 <c:redirect url="/index.jsp" context="/InfinitySoft"></c:redirect>
             </c:if>
-            <c:if test="${usuariosRegistrados.listaUsuarioNoAdminAnonimo()}">
+            <c:if test="${usuariosRegistrados.listaNormalesVacia()}">
                 <br>
                 <br>
                 <p style="color: white">No hay usuarios</p>
             </c:if>
-            <c:if test="${!usuariosRegistrados.listaUsuarioNoAdminAnonimo()}">
+            <c:if test="${!usuariosRegistrados.listaNormalesVacia()}">
             <form action="ManageUsers" method="POST">
-                    <c:forEach items="${usuariosRegistrados.getUsuarios()}" var="usuarios">
+                    <c:forEach items="${usuariosRegistrados.getUsuariosNormales()}" var="usuarios">
                         <c:if test="${usuarios.getNickName() ne 'admin' and usuarios.getNickName() ne 'anonimo'}">
                             <br>
                             <br>

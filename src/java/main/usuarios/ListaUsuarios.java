@@ -11,7 +11,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import javax.sql.DataSource;
 import main.Exception.UserNotExistException;
 
@@ -96,10 +99,6 @@ public class ListaUsuarios {
         
         throw new UserNotExistException();
     }
-    
-    public boolean listaUsuarioNoAdminAnonimo() throws SQLException{
-        return getUsuarios().size() <= 2;
-    }
 
     public void modificarUsuario(Usuario usuario) throws SQLException {
         String sentenciaSQL = "UPDATE " + NOMBRE_TABLA + " SET " 
@@ -135,6 +134,16 @@ public class ListaUsuarios {
                 statement.executeUpdate(sentenciaSQL);
             }
         }
+    }
+    
+    public List<Usuario> getUsuariosNormales() throws SQLException {
+        Stream<Usuario> clienteNormales = getUsuarios().stream()
+                .filter(u -> !u.getTipo().equals(TipoUsuario.ADMINISTRADOR) && !u.getNickName().equals("anonimo"));
+        return clienteNormales.collect(Collectors.toList());
+    }
+    
+    public boolean listaNormalesVacia() throws SQLException{
+        return getUsuariosNormales().isEmpty();
     }
 
     

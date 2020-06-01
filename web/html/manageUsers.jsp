@@ -67,7 +67,7 @@
             <c:if test="${usuariosRegistrados.listaNormalesVacia()}">
                 <br>
                 <br>
-                <p style="color: white">No hay usuarios</p>
+                <p id="vacio_user" style="color: white">No hay usuarios</p>
             </c:if>
             <c:if test="${!usuariosRegistrados.listaNormalesVacia()}">
             <form action="ManageUsers" method="POST">
@@ -75,7 +75,7 @@
                         <c:if test="${usuarios.getNickName() ne 'admin' and usuarios.getNickName() ne 'anonimo'}">
                             <br>
                             <br>
-                            <input type="radio" value="${usuarios.getNickName()}" name="manageUser">${usuarios.getNickName()}(${usuarios.getCorreo()})
+                            <input id="input_user" type="radio" value="${usuarios.getNickName()}" name="manageUser"><p id="seleccion_user" style="color: white">${usuarios.getNickName()}(${usuarios.getCorreo()})</p>
                             <input type="submit" id="send">
                         </c:if>
                     </c:forEach>

@@ -132,4 +132,25 @@ public class ListaUsuariosTest extends UnitTest{
     }
     
     
+    @Test
+    public void listaNormalesVacia() throws UserNotExistException{
+        
+        try {
+            assertTrue(this.listaUsuarios.listaNormalesVacia());
+        } catch (SQLException ex) {
+            fail();
+        }
+    }
+    
+    @Test
+    public void listaNormalesNoVacia() throws UserNotExistException{
+        
+        try {
+            this.listaUsuarios.mete(new Usuario("UserR", "user@gmail.com", "Usuario", "Usuario", "1234", TipoUsuario.NORMAL));
+            assertFalse(this.listaUsuarios.listaNormalesVacia());
+        } catch (SQLException ex) {
+            fail();
+        }
+    }
+    
 }

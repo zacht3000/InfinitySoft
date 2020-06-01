@@ -58,7 +58,7 @@
                     </ul>
                 </nav>
             </header>
-            <h1>Login</h1>
+            <h2 id="tittle">Modificar Usuario</h2>
             <c:if test="${not empty messageError}">
                 <div class="Error" style="color:white"><p id="error">${messageError}</p></div>
             </c:if> 

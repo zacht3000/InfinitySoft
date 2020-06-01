@@ -26,7 +26,7 @@ public class ListaProductos {
         this.dataSource = dataSource;
     }
     
-    public ArrayList<Producto> getUsuarios() throws SQLException{
+    public ArrayList<Producto> getProductos() throws SQLException{
         
         this.productos = new ArrayList<>();
         String sentenciaSQL = "select * from " + NOMBRE_TABLA;
@@ -47,7 +47,5 @@ public class ListaProductos {
         }
         return productos;   
     }
-    
-    
     
 }

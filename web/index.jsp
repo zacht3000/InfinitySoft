@@ -42,12 +42,12 @@
                         </div>
                         <li class="item"><a href="${pageContext.request.contextPath}/index.jsp">INICIO</a></li>
                         <li class="item"><a href="#">SUSCRIPCIONES</a></li>
-                        <li class="item"><a href="#">PLANTILLA</a></li>
+                        <li class="item"><a href="${pageContext.request.contextPath}/html/productos.jsp">PLANTILLA</a></li>
                         <li class="item"><a id="contact" href="${pageContext.request.contextPath}/html/contact.jsp">CONTACTO</a></li>
                         <li class="item"><a href="#">SOBRE NOSOTROS</a></li>
                         <li class="item"><a href="${pageContext.request.contextPath}/html/blog.html">BLOG</a></li>
                         <c:if test="${sessionScope.usuario.getTipo() eq TipoUsuario.ADMINISTRADOR}">
-                            <li class="item"><a href="${pageContext.request.contextPath}/html/manageUsers.jsp">ADMINISTRAR</a></li>
+                            <li class="item"><a id="administrar" href="${pageContext.request.contextPath}/html/manageUsers.jsp">ADMINISTRAR</a></li>
                         </c:if>
                         <c:if test="${sessionScope.usuario eq null}">
                         <li class="item button"><a id="login" href="${pageContext.request.contextPath}/html/login.jsp">ENTRAR</a></li>

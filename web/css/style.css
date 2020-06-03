@@ -2,11 +2,6 @@
 
 /*Fuentes*/
 
-@font-face {
-    font-family: 'MyWebFont';
-    src: url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-}
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -17,79 +12,6 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: black;
 }
-
-/*Estructura de pagina*/
-
-/*
-.header_logo{
-  display: flex;
-  align-items: center;
-}
-.header_logo h1{
-  font-size: 1.3em;
-}
-
-.header_logo h2{
-  font-size: 0.8em;
-}
-
-.header{
-  background-color: rgba(0, 0, 0, 0.911);
-  width: 100%;
-  height: 60px;
-  position: -webkit-sticky;
-  position: sticky;
-    z-index: 1;
-  top: 0;
-  color: white;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  
-}
-
-.icon{
-  color: gray;
-}
-
-.navigation{
-  padding-top: 200px;
-  background-color: rgba(0, 0, 0, 0.911);
-  text-align: center;
-  transition: width 3s;
-  transition-delay: 1s;
-}
-
-#header_logo_text{
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-}
-
-.navigation{
-  display: none;
-  
-}
-
-.responsive{
-  display: block;
-  
-}
-
-header label:hover{
-  cursor: pointer;
-  color: red;
-}
-
-.header_logo > a:link, .header_logo > a:visited, .navigation a:link, .navigation a:visited, .navigation li{
-  text-decoration: none;
-  color: white;
-  list-style-type:none
-}
-
-#header_logo_img{
-  width: 20%;
-*/
 
 header {
     width: 100%;
@@ -265,6 +187,57 @@ a:hover {
     width: 100%;
 }
 
+/*-----------------------------*/
+
+#container_login>input, #container_login>textarea, #container_login>select {
+    margin-top: 2em;
+    height: 60px;
+    font-size: 1.4rem;
+    font-family: 'Source Sans Pro', sans-serif;
+    border: 0;
+    border-bottom: solid gray 1px;
+    background-color: rgba(0, 0, 0, 0);
+    color: grey;
+}
+
+.container_productos {
+    margin-top: 2em;
+}
+
+.box_producto {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+
+.box_producto img {}
+
+.buttom_buy {
+    display: flex;
+}
+
+#precio {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.buttom_buy input {
+    margin-left: 10%;
+}
+
+.box_producto_img_precio {
+    display: flex;
+}
+
+#container_login>input:required, #container_login>textarea:required, #container_login>select:required {
+    border: 0;
+    border-bottom: solid red 1px;
+}
+
+#container_login #send {
+    width: 100%;
+}
+
 #container_information_formular_contact>input, #container_information_formular_contact>textarea, #container_information_formular_contact>select {
     margin-top: 1%;
     width: 60%;
@@ -277,7 +250,7 @@ a:hover {
     color: grey;
 }
 
-#container_information_formular_contact>input:focus, #container_information_formular_contact>textarea:focus, #container_information_formular_contact>select:focus {
+#container_information_formular_contact>input:focus, #container_information_formular_contact>textarea:focus, #container_information_formular_contact>select:focus, #container_login>input:focus, #container_login>textarea:focus, #container_login>select:focus {
     border: 0;
     border-bottom: solid white 1px;
 }
@@ -481,6 +454,87 @@ video {
 
 .footer p {
     font-weight: bold;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+/*Diseño productos*/
+
+.container_productos {
+    color: white;
+}
+
+.container_productos_articles {
+    margin-right: 20%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.container_productos_article {
+    display: flex;
+    background-color: rgba(88, 88, 88, 0.342);
+    text-align: center;
+    color: white;
+    height: 20em;
+    margin: 0.2em;
+    flex-direction: column;
+    justify-content: center;
+    width: 20%;
+}
+
+.box_productos {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+.container_productos .img_producto {
+    width: 80%;
+}
+
+.container_productos_fitro {
+    border-right: solid white 1px;
+    border-top: solid white 1px;
+    margin-left: 20%;
+    padding-top: 1%;
+    padding-right: 5%;
+}
+
+.container_productos_filtro_y_articles {
+    display: flex;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.puntuacion {
+    display: flex;
+}
+
+/*-------------------------------------------------------------------------------*/
+
+/*Diseño login*/
+
+.login {
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 1.2em;
+}
+
+.login #send {
+    border: solid grey 1px;
+}
+
+.login #send:active {
+    background-color: red;
+    color: white;
+}
+
+.container_information_formular_contact {
+    text-align: end;
+    color: white;
 }
 
 @media screen and (min-width: 576px) {
@@ -705,7 +759,6 @@ video {
     }
     .container_information_formulary {
         display: flex;
-        width: 50%;
         flex-direction: column;
         align-items: flex-end;
     }
@@ -803,5 +856,137 @@ video {
         flex-wrap: wrap;
         padding-top: 30px;
         padding-bottom: 30px;
+    }
+    /*-----------------------------------------------------------------------------*/
+    .container_producto {
+        color: white;
+        margin-top: 30px;
+    }
+    .producto_info {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        color: white;
+    }
+    .producto_info img {
+        width: 20%;
+    }
+    #button_comprar {
+        display: flex;
+    }
+    .descripcion_producto {
+        width: 20%;
+    }
+    /*-----------------------------------------------------------------------------*/
+    .user_edit {
+        display: flex;
+        justify-content: center;
+    }
+    .user_edit form {
+        margin-top: 1em;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        color: white;
+    }
+    #manageUser #send {
+        width: 100px;
+    }
+    .users_edit {
+        display: flex;
+        align-items: center;
+    }
+    /*-----------------------------------------------------------------------------*/
+    #precio_producto {
+        animation-name: color_precio;
+        animation-duration: 4s;
+    }
+    @keyframes color_precio {
+        from {
+            color: red;
+        }
+        to {
+            color: yellow;
+        }
+    }
+    .descripcion_producto #send {
+        background-color: #ff0000;
+        transition-property: background-color;
+        transition-duration: 3s;
+    }
+    .descripcion_producto #send:hover {
+        background-color: #0000ff;
+        color: white;
+    }
+    /*-----------------------------------------------------------------------------*/
+    @keyframes latido {
+        0%, 50%, 100% {
+            color: #e00;
+            transform: scale(1);
+            animation-timing-function: ease-in;
+        }
+        25%, 75% {
+            color: #f00;
+            transform: scale(1.25);
+            animation-timing-function: ease-out;
+        }
+    }
+    #precio_productos {
+
+        animation-name: latido;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+    }
+    #precio_productos::before,  #precio_product::after {
+        content: "";
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+        display: block;
+        background: currentColor;
+        position: relative;
+    }
+    #precio_productos::before {
+        top: -50%;
+    }
+    #precio_productos::after {
+        left: 50%;
+        top: -100%;
+    }
+    /*-----------------------------------------------------------------------------*/
+    .brillog{
+        position:relative;
+        margin: 0 auto;
+        display: block;
+        height: 133px;
+        width: 132px;	
+        text-decoration:none;
+        overflow:hidden;
+    }
+    .brillog span{
+        position:relative;
+        display: block;
+        background:url(../media/img/png/brillog.png) no-repeat;	
+        background-position: -300px 0px;
+        margin-top:-137px;
+        height: 133px;
+        width: 132px;	
+    }
+    .brillog:hover span{
+        background-position: 300px 0px;
+        -webkit-transition-property: all;
+        -webkit-transition-duration: 1.5s;
+        transition-property: all;
+        transition-duration: 1.5s;
+    }
+    /*-----------------------------------------------------------------------------*/
+    @font-face {
+        font-family: "Roboto Thin";
+        src: url("../font/Roboto/Roboto-Thin.ttf");
+    }
+
+    #title_article{
+        font-family: "Roboto Thin";
     }
 }

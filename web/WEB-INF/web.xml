@@ -31,6 +31,10 @@
         <servlet-name>DeleteUser</servlet-name>
         <servlet-class>servlets.deleteUser.DeleteUser</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Producto</servlet-name>
+        <servlet-class>servlets.producto.Producto</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>init</servlet-name>
         <url-pattern>/init</url-pattern>
@@ -58,6 +62,10 @@
     <servlet-mapping>
         <servlet-name>DeleteUser</servlet-name>
         <url-pattern>/html/DeleteUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Producto</servlet-name>
+        <url-pattern>/html/Producto</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

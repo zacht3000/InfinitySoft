@@ -10,7 +10,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Optional;
 import javax.sql.DataSource;
+import main.Exception.UserNotExistException;
 
 /**
  *
@@ -46,6 +48,17 @@ public class ListaProductos {
             }
         }
         return productos;   
+    }
+
+    public Producto getBusca(int Codigo) throws SQLException, UserNotExistException {
+        Optional<Producto> usuario = getProductos().stream()
+                .filter(p -> Codigo == p.getCod()).findFirst();
+        
+        if (usuario.isPresent()) {
+            return usuario.get();
+        }
+        
+        throw new UserNotExistException();
     }
     
 }

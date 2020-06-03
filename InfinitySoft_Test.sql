@@ -19,9 +19,9 @@ CREATE TABLE FORMULARIO (ID NUMBER(4) PRIMARY KEY, NICKNAME VARCHAR2(20), NOMBRE
 
 INSERT INTO USUARIO VALUES('anonimo', 'anonymous@iespacomolla.es', null, null, '1234', 'NORMAL');
 INSERT INTO USUARIO VALUES('admin', 'admin@iespacomolla.es', null, null, 'admin', 'ADMINISTRADOR');
-INSERT INTO PRODUCTO VALUES(1, 50, 'Plantilla Basica', '/multimedia/img/jpg/1.jpg');
-INSERT INTO PRODUCTO VALUES(2, 100, 'Plantilla Premiun', '/multimedia/img/jpg/2.jpg');
-INSERT INTO PRODUCTO VALUES(3, 150, 'Plantilla Plus', '/multimedia/img/jpg/3.jpg');
+INSERT INTO PRODUCTO VALUES(1, 50, 'Plantilla Basica', '/media/img/jpg/1.jpg');
+INSERT INTO PRODUCTO VALUES(2, 100, 'Plantilla Premiun', '/media/img/jpg/2.jpg');
+INSERT INTO PRODUCTO VALUES(3, 150, 'Plantilla Plus', '/media/img/jpg/3.jpg');
 
 
 

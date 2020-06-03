@@ -78,7 +78,7 @@
             </form>
             <form action="DeleteUser" method="POST">
                 <input type="hidden" value="${sessionScope.updateUser.getNickName()}" name="Eliminar">
-                <input type="submit" id="send" value="Eliminar Cuenta"/><br/>
+                <input type="submit" id="delete_user" value="Eliminar Cuenta"/><br/>
             </form>
             <div class="social_media">
                 <article>

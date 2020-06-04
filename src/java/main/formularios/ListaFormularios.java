@@ -26,7 +26,7 @@ public class ListaFormularios {
         this.dataSource = dataSource;
     }
     
-    public ArrayList<Formulario> getUsuarios() throws SQLException{
+    public ArrayList<Formulario> getFormularios() throws SQLException{
         
         this.formularios = new ArrayList<>();
         String sentenciaSQL = "SELECT * FROM " + NOMBRE_TABLA;

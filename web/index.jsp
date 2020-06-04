@@ -152,6 +152,7 @@
             </footer>
         </main>
         <script type="text/javascript" src="${pageContext.request.contextPath}/js/animation.js"></script>
+        <script type="text/javascript" src="${pageContext.request.contextPath}/js/change_text.js"></script>
     </body>
 
 </html>

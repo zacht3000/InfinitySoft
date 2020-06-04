@@ -20,7 +20,7 @@ public class UserNotExistException extends Exception {
 
     @Override
     public String getMessage() {
-        return "No existe el usuario o correo"; //To change body of generated methods, choose Tools | Templates.
+        return "No existe el usuario o correo."; //To change body of generated methods, choose Tools | Templates.
     }
     
 }

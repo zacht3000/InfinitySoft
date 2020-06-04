@@ -11,47 +11,47 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="author" content="Santiago Naranjo Marcillo">
-    <meta name="description" content="InfinitySoft">
-    <meta name="keywords" content="InfinitySoft, work, trabajo, 
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Santiago Naranjo Marcillo">
+        <meta name="description" content="InfinitySoft">
+        <meta name="keywords" content="InfinitySoft, work, trabajo, 
               Web design, diseño web, web hosting, alojamiento web, ecommerce, comercio electronico">
-    <link rel="shortcut icon" type="img/ico" href="${pageContext.request.contextPath}/media/img/ico/favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-    <title>INFINITYSOFT</title>
-</head>
+        <link rel="shortcut icon" type="img/ico" href="${pageContext.request.contextPath}/media/img/ico/favicon.ico" />
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/style.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+              integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+        <title>INFINITYSOFT</title>
+    </head>
 
-<body>
-    <main class="main">
-        <header>
-            <nav>
-                <ul class="menu">
-                    <div class="logo" id="container_logo">
-                        <a href="#">
-                            <img id="logo_img" src="${pageContext.request.contextPath}/media/img/png/Logo.png" alt="Logo">
-                        </a>
-                        <div>
-                            <h1>INFINITYSOFT</h1>
-                            <div onmousedown="mDown(this)" onmouseup="mUp(this)">
-                                <h2>Tú haces que sea infinito</h2>
+    <body>
+        <main class="main">
+            <header>
+                <nav>
+                    <ul class="menu">
+                        <div class="logo" id="container_logo">
+                            <a href="#">
+                                <img id="logo_img" src="${pageContext.request.contextPath}/media/img/png/Logo.png" alt="Logo">
+                            </a>
+                            <div>
+                                <h1>INFINITYSOFT</h1>
+                                <div onmousedown="mDown(this)" onmouseup="mUp(this)">
+                                    <h2>Tú haces que sea infinito</h2>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <li class="item"><a href="${pageContext.request.contextPath}/index.jsp">INICIO</a></li>
+                        <li class="item"><a href="${pageContext.request.contextPath}/index.jsp">INICIO</a></li>
                         <li class="item"><a href="#">SUSCRIPCIONES</a></li>
                         <li class="item"><a href="${pageContext.request.contextPath}/html/productos.jsp">PLANTILLA</a></li>
                         <li class="item"><a href="${pageContext.request.contextPath}/html/contacto.html">CONTACTO</a></li>
                         <li class="item"><a href="#">SOBRE NOSOTROS</a></li>
                         <li class="item"><a href="${pageContext.request.contextPath}/html/blog.html">BLOG</a>
-                        <c:if test="${sessionScope.usuario.getTipo() eq TipoUsuario.ADMINISTRADOR}">
+                            <c:if test="${sessionScope.usuario.getTipo() eq TipoUsuario.ADMINISTRADOR}">
                             <li class="item"><a href="${pageContext.request.contextPath}/html/manageUsers.jsp">ADMINISTRAR</a></li>
-                        </c:if>
+                            </c:if>
                         </li>
                         <c:if test="${sessionScope.usuario eq null}">
                             <li class="item button"><a href="${pageContext.request.contextPath}/html/login.jsp">ENTRAR</a></li>
@@ -64,24 +64,31 @@
                         <li class="toggle"><a href="#" onclick="myFunction()"><i id="icon" class="fas fa-bars"></i></a></li>
                     </ul>
                 </nav>
-        </header>
-            <h1>Login</h1>
-            <c:if test="${not empty messageError}">
-                    <div class="Error" style="color:white"><p id="error">${messageError}</p></div>
-                </c:if> 
-                <c:if test="${not empty messageCorrect}">
-                    <div class="Error" style="color:white"><p id="correcto">${messageCorrect}</p></div>
-                </c:if> 
-                <c:remove scope="session" var="messageError"/>
-                <c:remove scope="session" var="messageCorrect"/>
+            </header>
+            <div class="login">
                 <c:if test="${sessionScope.usuario ne null}">
                     <c:redirect url="/index.jsp" context="/InfinitySoft"></c:redirect>
                 </c:if>
-            <form action="login" method="POST">
-                <label for="nombreCorreo" style="color: white">Nombre de usuario o e-mail: </label><input type="text" id="nombre" name="nombreCorreo"/><br/>
-                <label for="contrasenya" style="color: white">Contraseña: </label><input type="password" name="contrasenya" id="contrasenya"/><br/>
-                <input type="submit" id="send" value="Entrar"/><br/>
-            </form>
+                <form id="container_login" action="login" method="POST">
+                    <c:if test="${not empty messageError}">
+                        <div class="Error">
+                            <p id="error">${messageError}</p>
+                        </div>
+                    </c:if>
+                    <c:if test="${not empty messageCorrect}">
+                        <div class="Error">
+                            <p id="correcto">${messageCorrect}</p>
+                        </div>
+                    </c:if>
+                    <c:remove scope="session" var="messageError"/>
+                    <c:remove scope="session" var="messageCorrect"/>
+                    <p>Nombre de usuario o e-mail:</p>
+                    <input type="text" id="nombre" name="nombreCorreo" required/>
+                    <p>Contraseña:</p>
+                    <input type="password" name="contrasenya" id="contrasenya" required/><br/>
+                    <input type="submit" id="send" value="Entrar"/><br/>
+                </form>
+            </div>
             <div class="social_media">
                 <article>
                     <h2>CONTACTO</h2>

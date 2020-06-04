@@ -61,7 +61,7 @@ public class Opinar extends HttpServlet {
         String parameter = request.getParameter(texto);
         
 
-        if (parameter.isEmpty() || parameter == null) {
+        if (parameter == null || parameter.isEmpty()) {
             throw new UserRegisterException(textoException);
         }
 

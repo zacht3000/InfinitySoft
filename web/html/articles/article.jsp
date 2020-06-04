@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : 13-may-2020, 16:39:48
+    Document   : article
+    Created on : 04-jun-2020, 19:32:15
     Author     : Santiago Naranjo Marcillo
 --%>
 
@@ -64,36 +64,56 @@
                     </ul>
                 </nav>
         </header>
-            <div class="container_welcome">
-                <div class="container_welcome_box">
-                    <p>El Lugar Perfecto para Crear tu Pagina Web Profesional</p>
-                    <p><a class="container_welcome_box_botton" href="#">EMPEZAR</a></p>
+        <div class="container_blog">
+            <div id="blog_title">
+                <h2>Conoce las actualidades</h2>
+                <hr>
+            </div>
+            <div id="article_on">
+                <article class="article_blog_1">
+                    <h2 id="title_article">Los consejos para la educación a distancia en la pandemia</h2>
+                    <img class="img_article" src="${pageContext.request.contextPath}/media/img/jpg/EducacionArticle.jpg" alt="Article">
+                    <p class="fecha">Subido: 11/05/2020</p>
+                    <P>La educación a distancia es una forma de enseñanza en la cual los estudiantes no requieren
+                        asistir físicamente al lugar de estudios. En este sistema de enseñanza, el alumno recibe el
+                        material de estudio (personalmente, por correo postal, correo electrónico u otras posibilidades
+                        que ofrece Internet), permitiendo que en el acto educativo se empleen nuevas técnicas y
+                        estrategias de aprendizaje centradas en el propio estudiante, fomentando así el autodidactismo y
+                        la autogestión, es decir, se trata de una educación flexible y auto dirigida, cuyas principales
+                        herramientas son las tecnologías de la comunicación y la información. Al aprendizaje
+                        desarrollado con las nuevas tecnologías de la comunicación se le llama aprendizaje electrónico
+                        ("elearning" en inglés). La plataforma más utilizada actualmente para esta modalidad es
+                        Moodle.1?
+
+                        Dependiendo del centro de estudios, los estudiantes pueden acudir físicamente para recibir
+                        tutorías, o bien deben realizar exámenes presenciales. Existe educación a distancia para
+                        cualquier nivel de estudios, pero lo más usual es que se imparta para estudios universitarios2?.
+
+                        En sus inicios fue entendida como una forma de estudio por correspondencia. La denominada
+                        Society to Encourage Studies at Home fue la que acuñó por primera vez este término, pues se
+                        trataba de una educación no presencial en palabras de Simonson (2010)3?.</P>
+                    <video controls>
+                        <source
+                            src="${pageContext.request.contextPath}/media/video/webm/Guía de educación online y virtual para profesores.webm">
+                        <source src="${pageContext.request.contextPath}/media/video/mp4/Guía de educación online y virtual para profesores.mp4">
+                        Error no existe formato posible para tu navegador
+                    </video>
+                </article>
+                <div id="search">
+                    <form id="FormularySearch" action="" method="POST" target="_blank">
+                        <input type="search" id="container_search" name="buscarArticulo" placeholder="Buscar">
+                        <input id="searchSend" type="submit" value="Buscar">
+                    </form>
+                    <h3>Musica</h3>
+                    <audio controls>
+                        <source src="${pageContext.request.contextPath}/media/audio/mp3/Agnes_ Obel_ -_ Fuel_ To_ Fire _(Official_ Video).mp3">
+                        <source src="${pageContext.request.contextPath}/media/audio/ogg/Agnes_ Obel_ -_ Fuel_ To_ Fire _(Official_ Video).ogg">
+                        Error no existe formato posible para tu navegador
+                    </audio>
                 </div>
             </div>
-            <div class="container_information">
-                <div id="container_information_tittle">
-                    <h2>Obtén funciones profesionales para tu página web</h2>
-                    <hr>
-                </div>
-                <div class="container_information_article">
-                    <article class="container_information_articles">
-                        <img src="media/img/jpg/Articulo2.jpg" alt="Article 1">
-                        <p>Tienda Online Crea una tienda online y desarrolla tu negocio sin límites con una
-                            poderosa plataforma de eCommerce.</p>
-                    </article>
-                    <article class="container_information_articles">
-                        <img src="media/img/jpg/Articulo3.jpg" alt="Article 2">
-                        <p>Potentes herramientas de SEO Haz un plan de SEO para que te encuentren en
-                            Google, con potentes y avanzadas herramientas de SEO.</p>
-                    </article>
-                    <article class="container_information_articles">
-                        <img src="media/img/jpg/Articulo1.jpg" alt="Article 3">
-                        <p>Adaptado a móvil Tu sitio web INFINITYSOFT se verá increíble en todas las
-                            pantallas con una versión móvil.</p>
-                    </article>
-                </div>
-            </div>
-            <div class="social_media">
+        </div>
+        <div class="social_media">
                 <article>
                     <h2>CONTACTO</h2>
                     <p>Contacto: 66666666 – 96000000<br>Correo: info@infinitysoft.com<br>Dirreción: Madrid, Av.
@@ -101,7 +121,8 @@
                     <p>Ubicación:</p>
                     <div class="iframe-container">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.299174356977!2d-3.7363057841482465!3d40.446514879361565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42282ea6a1047d%3A0xed212bebe104472c!2sAv.%20Puerta%20de%20Hierro%2C%2028040%20Madrid!5e0!3m2!1ses!2ses!4v1579864583378!5m2!1ses!2ses"></iframe>
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.299174356977!2d-3.7363057841482465!3d40.446514879361565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42282ea6a1047d%3A0xed212bebe104472c!2sAv.%20Puerta%20de%20Hierro%2C%2028040%20Madrid!5e0!3m2!1ses!2ses!4v1579864583378!5m2!1ses!2ses">
+                        </iframe>
                     </div>
                 </article>
                 <article>
@@ -130,7 +151,7 @@
                 </article>
                 <article class="social_media_description">
                     <div class="social_media_description_title">
-                        <img id="social_media_description_title_logo" src="${pageContext.request.contextPath}/media/img/png/logo.png" alt="Logo">
+                        <img id="social_media_description_title_logo" src="${pageContext.request.contextPath}/media/img/png/Logo.png" alt="Logo">
                         <h3>INFINITYSOFT</h3>
                     </div>
                     <div id="social_media_description_text">
@@ -151,7 +172,7 @@
                 <p><small>TEMA CREADO POR INFINITYSOFT</small></p>
             </footer>
         </main>
-        <script type="text/javascript" src="${pageContext.request.contextPath}/js/animation.js"></script>
+
     </body>
 
 </html>

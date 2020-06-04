@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : 13-may-2020, 16:39:48
+    Document   : blog
+    Created on : 04-jun-2020, 19:32:01
     Author     : Santiago Naranjo Marcillo
 --%>
 
@@ -64,36 +64,63 @@
                     </ul>
                 </nav>
         </header>
-            <div class="container_welcome">
-                <div class="container_welcome_box">
-                    <p>El Lugar Perfecto para Crear tu Pagina Web Profesional</p>
-                    <p><a class="container_welcome_box_botton" href="#">EMPEZAR</a></p>
-                </div>
+        <div class="container_blog">
+            <div id="blog_title">
+                <h2>Obtén funciones profesionales para tu página web</h2>
+                <hr>
             </div>
-            <div class="container_information">
-                <div id="container_information_tittle">
-                    <h2>Obtén funciones profesionales para tu página web</h2>
-                    <hr>
-                </div>
-                <div class="container_information_article">
-                    <article class="container_information_articles">
-                        <img src="media/img/jpg/Articulo2.jpg" alt="Article 1">
-                        <p>Tienda Online Crea una tienda online y desarrolla tu negocio sin límites con una
-                            poderosa plataforma de eCommerce.</p>
-                    </article>
-                    <article class="container_information_articles">
-                        <img src="media/img/jpg/Articulo3.jpg" alt="Article 2">
-                        <p>Potentes herramientas de SEO Haz un plan de SEO para que te encuentren en
-                            Google, con potentes y avanzadas herramientas de SEO.</p>
-                    </article>
-                    <article class="container_information_articles">
-                        <img src="media/img/jpg/Articulo1.jpg" alt="Article 3">
-                        <p>Adaptado a móvil Tu sitio web INFINITYSOFT se verá increíble en todas las
-                            pantallas con una versión móvil.</p>
-                    </article>
-                </div>
+            <div class="articles_blog">
+                <article class="article_blog">
+                    <img class="article_blog_img" src="${pageContext.request.contextPath}/media/img/jpg/EducacionArticle.jpg" alt="Article">
+                    <p class="fecha">Subido: 11/05/2020</p>
+                    <p>Los consejos para la educación a distancia en la pandemia</p>
+                    <p><a class="botton_box" href="${pageContext.request.contextPath}/html/articles/article.jsp">LEER</a></p>
+                </article>
+                <article class="article_blog">
+                    <img class="article_blog_img" src="${pageContext.request.contextPath}/media/img/jpg/Freelance_Vs_Trabajoremoto.jpg"
+                        alt="Article">
+                    <p class="fecha">Subido: 11/05/2020</p>
+                    <p>Trabajo remoto o teletrabajo para todos</p>
+                    <p><a class="botton_box" href="${pageContext.request.contextPath}/html/articles/article2.jsp">LEER</a></p>
+                </article>
+                <article class="article_blog">
+                    <img class="article_blog_img" src="${pageContext.request.contextPath}/media/img/jpg/Freelance_Vs_Trabajoremoto.jpg"
+                        alt="Article">
+                    <p class="fecha">Subido: 11/05/2020</p>
+                    <p>Trabajo remoto o teletrabajo para todos</p>
+                    <p><a class="botton_box" href="${pageContext.request.contextPath}/html/articles/article2.jsp">LEER</a></p>
+                </article>
+                <article class="article_blog">
+                    <img class="article_blog_img" src="${pageContext.request.contextPath}/media/img/jpg/Freelance_Vs_Trabajoremoto.jpg"
+                        alt="Article">
+                    <p class="fecha">Subido: 11/05/2020</p>
+                    <p>Trabajo remoto o teletrabajo para todos</p>
+                    <p><a class="botton_box" href="${pageContext.request.contextPath}/html/articles/article2.jsp">LEER</a></p>
+                </article>
+                <article class="article_blog">
+                    <img class="article_blog_img" src="${pageContext.request.contextPath}/media/img/jpg/Freelance_Vs_Trabajoremoto.jpg"
+                        alt="Article">
+                    <p class="fecha">Subido: 11/05/2020</p>
+                    <p>Trabajo remoto o teletrabajo para todos</p>
+                    <p><a class="botton_box" href="articles/article2.html">LEER</a></p>
+                </article>
+                <article class="article_blog">
+                    <img class="article_blog_img" src="${pageContext.request.contextPath}/media/img/jpg/Freelance_Vs_Trabajoremoto.jpg"
+                        alt="Article">
+                    <p class="fecha">Subido: 11/05/2020</p>
+                    <p>Trabajo remoto o teletrabajo para todos</p>
+                    <p><a class="botton_box" href="${pageContext.request.contextPath}/html/articles/article2.jsp">LEER</a></p>
+                </article>
+                <article class="article_blog">
+                    <img class="article_blog_img" src="${pageContext.request.contextPath}/media/img/jpg/Freelance_Vs_Trabajoremoto.jpg"
+                        alt="Article">
+                    <p class="fecha">Subido: 11/05/2020</p>
+                    <p>Trabajo remoto o teletrabajo para todos</p>
+                    <p><a class="botton_box" href="articles/article2.html">LEER</a></p>
+                </article>
             </div>
-            <div class="social_media">
+        </div>                
+        <div class="social_media">
                 <article>
                     <h2>CONTACTO</h2>
                     <p>Contacto: 66666666 – 96000000<br>Correo: info@infinitysoft.com<br>Dirreción: Madrid, Av.
@@ -101,7 +128,8 @@
                     <p>Ubicación:</p>
                     <div class="iframe-container">
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.299174356977!2d-3.7363057841482465!3d40.446514879361565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42282ea6a1047d%3A0xed212bebe104472c!2sAv.%20Puerta%20de%20Hierro%2C%2028040%20Madrid!5e0!3m2!1ses!2ses!4v1579864583378!5m2!1ses!2ses"></iframe>
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3036.299174356977!2d-3.7363057841482465!3d40.446514879361565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd42282ea6a1047d%3A0xed212bebe104472c!2sAv.%20Puerta%20de%20Hierro%2C%2028040%20Madrid!5e0!3m2!1ses!2ses!4v1579864583378!5m2!1ses!2ses">
+                        </iframe>
                     </div>
                 </article>
                 <article>
@@ -130,7 +158,7 @@
                 </article>
                 <article class="social_media_description">
                     <div class="social_media_description_title">
-                        <img id="social_media_description_title_logo" src="${pageContext.request.contextPath}/media/img/png/logo.png" alt="Logo">
+                        <img id="social_media_description_title_logo" src="${pageContext.request.contextPath}/media/img/png/Logo.png" alt="Logo">
                         <h3>INFINITYSOFT</h3>
                     </div>
                     <div id="social_media_description_text">
@@ -151,7 +179,7 @@
                 <p><small>TEMA CREADO POR INFINITYSOFT</small></p>
             </footer>
         </main>
-        <script type="text/javascript" src="${pageContext.request.contextPath}/js/animation.js"></script>
+
     </body>
 
 </html>

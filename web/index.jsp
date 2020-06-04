@@ -48,6 +48,9 @@
                         <li class="item"><a href="${pageContext.request.contextPath}/html/contacto.html">CONTACTO</a></li>
                         <li class="item"><a href="#">SOBRE NOSOTROS</a></li>
                         <li class="item"><a href="${pageContext.request.contextPath}/html/blog.html">BLOG</a>
+                        <c:if test="${sessionScope.usuario.getTipo() eq TipoUsuario.ADMINISTRADOR}">
+                            <li class="item"><a href="${pageContext.request.contextPath}/html/manageUsers.jsp">ADMINISTRAR</a></li>
+                        </c:if>
                         </li>
                         <c:if test="${sessionScope.usuario eq null}">
                             <li class="item button"><a href="${pageContext.request.contextPath}/html/login.jsp">ENTRAR</a></li>
@@ -60,7 +63,7 @@
                         <li class="toggle"><a href="#" onclick="myFunction()"><i id="icon" class="fas fa-bars"></i></a></li>
                     </ul>
                 </nav>
-        </header>   
+        </header>
             <div class="container_welcome">
                 <div class="container_welcome_box">
                     <p>El Lugar Perfecto para Crear tu Pagina Web Profesional</p>

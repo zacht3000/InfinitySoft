@@ -3,30 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servlets.producto;
+package servlets.opinion;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import main.Exception.UserNotExistException;
 import main.Exception.UserRegisterException;
 import main.opiniones.ListaOpiniones;
 import main.opiniones.Opinion;
 import main.productos.ListaProductos;
+import main.usuarios.ListaUsuarios;
 
 /**
  *
  * @author Santiago Naranjo Marcillo
  */
-public class Producto extends HttpServlet {
+public class Opinar extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,28 +39,29 @@ public class Producto extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         ServletContext application = getServletContext();
-        ListaProductos productosRegistrados = (ListaProductos) application.getAttribute("productosRegistrados");
         ListaOpiniones opinionesRegistradas = (ListaOpiniones) application.getAttribute("opinionesRegistradas");
         HttpSession session = request.getSession();
         try {
-            int codigo = Integer.parseInt(getParameter(request, "codProducto", "no user"));
-            session.setAttribute("productoSeleccionado", productosRegistrados.getBusca(codigo));
-            session.setAttribute("opinionesProducto", opinionesRegistradas.getOpionesProducto(codigo));
-            response.sendRedirect("/InfinitySoft/html/producto.jsp");
-        } catch (UserNotExistException | UserRegisterException ex) {
+            int codProducto = Integer.parseInt(getParameter(request, "idProducto", "nombre de usuario"));
+            String description = getParameter(request, "description", "comentario");
+            int puntuacion = Integer.parseInt(getParameter(request, "puntuacion", "puntuacion"));
+            String nickname = getParameter(request, "nickname", "nickname");
+            opinionesRegistradas.mete(new Opinion(opinionesRegistradas.getCodigoSiguiente(), description, puntuacion, codProducto, nickname));
+            application.getRequestDispatcher("/html/producto.jsp").forward(request, response);
+        } catch (UserRegisterException ex) {
             request.setAttribute("messageError", ex.getMessage());
             application.getRequestDispatcher("/html/producto.jsp").forward(request, response);
-        } catch(SQLException ex){
+        } catch (SQLException ex){
             request.setAttribute("messageError", ex.getMessage());
             application.getRequestDispatcher("/html/producto.jsp").forward(request, response);
         }
     }
     
-    private String getParameter(HttpServletRequest request, String texto, String textoException) throws UserRegisterException, SQLException {
+     private String getParameter(HttpServletRequest request, String texto, String textoException) throws UserRegisterException, SQLException {
         String parameter = request.getParameter(texto);
         
 
-        if (parameter.isEmpty()) {
+        if (parameter.isEmpty() || parameter == null) {
             throw new UserRegisterException(textoException);
         }
 

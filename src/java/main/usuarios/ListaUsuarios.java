@@ -100,7 +100,7 @@ public class ListaUsuarios {
         throw new UserNotExistException();
     }
 
-    public void modificarUsuario(Usuario usuario) throws SQLException {
+    public void modificarUsuario(Usuario usuario, Usuario usuarioold) throws SQLException {
         String sentenciaSQL = "UPDATE " + NOMBRE_TABLA + " SET " 
                 + NOMBRE_COLUMNA_NICKNAME + " = '"
                 + usuario.getNickName() + "', "
@@ -115,7 +115,7 @@ public class ListaUsuarios {
                 + NOMBRE_COLUMNA_TIPO + " = '"
                 + usuario.getTipo().toString() + "' WHERE " 
                 + NOMBRE_COLUMNA_NICKNAME + " = '"
-                + usuario.getNickName() + "'";
+                + usuarioold.getNickName() + "'";
 
         try (Connection connection = this.dataSource.getConnection()) {
             try (Statement statement = connection.createStatement()) {

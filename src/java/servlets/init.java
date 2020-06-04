@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import main.formularios.ListaFormularios;
+import main.opiniones.ListaOpiniones;
 import main.productos.ListaProductos;
 
 /**
@@ -51,6 +52,9 @@ public class init extends HttpServlet {
         
         ListaProductos productosRegistrados = new ListaProductos(dataSource);
         application.setAttribute("productosRegistrados", productosRegistrados);
+        
+        ListaOpiniones opinionesRegistradas = new ListaOpiniones(dataSource);
+        application.setAttribute("opinionesRegistradas", opinionesRegistradas);
         
         // Salto al JSP
         response.sendRedirect(request.getContextPath() + "/index.jsp");

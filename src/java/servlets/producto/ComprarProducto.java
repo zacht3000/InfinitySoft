@@ -5,28 +5,23 @@
  */
 package servlets.producto;
 
+import main.Exception.UserNoLoginException;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import main.Exception.UserNotExistException;
-import main.Exception.UserRegisterException;
-import main.opiniones.ListaOpiniones;
-import main.opiniones.Opinion;
 import main.productos.ListaProductos;
+import main.usuarios.Usuario;
 
 /**
  *
  * @author Santiago Naranjo Marcillo
  */
-public class Producto extends HttpServlet {
+public class ComprarProducto extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,34 +35,27 @@ public class Producto extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        ServletContext application = getServletContext();
-        ListaProductos productosRegistrados = (ListaProductos) application.getAttribute("productosRegistrados");
-        ListaOpiniones opinionesRegistradas = (ListaOpiniones) application.getAttribute("opinionesRegistradas");
         HttpSession session = request.getSession();
+        ServletContext application = getServletContext();
         try {
-            int codigo = Integer.parseInt(getParameter(request, "codProducto", "no user"));
-            session.setAttribute("productoSeleccionado", productosRegistrados.getBusca(codigo));
-            session.setAttribute("opinionesProducto", opinionesRegistradas.getOpionesProducto(codigo));
-            response.sendRedirect("/InfinitySoft/html/producto.jsp");
-        } catch (UserNotExistException | UserRegisterException ex) {
+            Usuario usuario = (Usuario) session.getAttribute("usuario");
+            if(usuario == null){
+                throw new UserNoLoginException();
+            } else{
+                
+                ListaProductos productosRegistrados = (ListaProductos) application.getAttribute("productosRegistrados");
+//                productosRegistrados.getBusca(session.getAttribute("codProducto"));
+            }
+            
+        } catch (UserNoLoginException ex) {
             request.setAttribute("messageError", ex.getMessage());
-            application.getRequestDispatcher("/html/producto.jsp").forward(request, response);
-        } catch(SQLException ex){
-            request.setAttribute("messageError", ex.getMessage());
-            application.getRequestDispatcher("/html/producto.jsp").forward(request, response);
+            application.getRequestDispatcher("/html/login.jsp").forward(request, response);
         }
     }
     
-    private String getParameter(HttpServletRequest request, String texto, String textoException) throws UserRegisterException, SQLException {
-        String parameter = request.getParameter(texto);
-        
-
-        if (parameter.isEmpty()) {
-            throw new UserRegisterException(textoException);
-        }
-
-        return parameter;
-    }
+    
+    
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

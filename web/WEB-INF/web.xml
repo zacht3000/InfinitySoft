@@ -35,6 +35,14 @@
         <servlet-name>Producto</servlet-name>
         <servlet-class>servlets.producto.Producto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ComprarProducto</servlet-name>
+        <servlet-class>servlets.producto.ComprarProducto</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Opinar</servlet-name>
+        <servlet-class>servlets.opinion.Opinar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>init</servlet-name>
         <url-pattern>/init</url-pattern>
@@ -66,6 +74,14 @@
     <servlet-mapping>
         <servlet-name>Producto</servlet-name>
         <url-pattern>/html/Producto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ComprarProducto</servlet-name>
+        <url-pattern>/html/ComprarProducto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Opinar</servlet-name>
+        <url-pattern>/html/Opinar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

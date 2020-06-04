@@ -6,7 +6,6 @@
 package servlets.updateUser;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.regex.Pattern;
 import javax.servlet.ServletContext;
@@ -17,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import main.Exception.AttributesRequirementsException;
 import main.Exception.UserAlreadyExistsException;
-import main.Exception.UserNotExistException;
 import main.Exception.UserRegisterException;
 import main.usuarios.ListaUsuarios;
 import main.usuarios.TipoUsuario;
@@ -52,14 +50,15 @@ public class UpdateUser extends HttpServlet {
                 String apellidos = getParameter(request, "apellidos", usuariosRegistrados, usuarioAEditar);
                 String correo = getParameter(request, "correo", usuariosRegistrados, usuarioAEditar);
                 String contrasenya = getParameter(request, "contrasenya", usuariosRegistrados, usuarioAEditar);
-
+                Usuario usuarioOld = (Usuario) session.getAttribute("updateUser");
                 Usuario usuario = new Usuario(nickname, correo, nombre, apellidos, contrasenya, TipoUsuario.NORMAL);
-                usuariosRegistrados.modificarUsuario(usuario);
+                usuariosRegistrados.modificarUsuario(usuario, usuarioOld);
                
                 session.removeAttribute("updateUser");
                 session.setAttribute("messageCorrect", "Se han guardado los usuarios " + usuario.getNickName() + "(" + usuario.getCorreo() + ")");
                 application.getRequestDispatcher("/html/manageUsers.jsp").forward(request, response);
         } catch (UserRegisterException | AttributesRequirementsException | UserAlreadyExistsException ex) {
+            session.removeAttribute("messageCorrect");
             request.setAttribute("messageError", ex.getMessage());
             application.getRequestDispatcher("/html/updateUser.jsp").forward(request, response);
         } catch (SQLException ex) {

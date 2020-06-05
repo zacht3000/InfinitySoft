@@ -72,6 +72,7 @@
                 <br>
                 <p id="vacio_user" style="color: white">No hay usuarios</p>
             </c:if>
+                <h3 id="tittle">Modificar Usuario</h3>
             <c:if test="${!usuariosRegistrados.listaNormalesVacia()}">
                 <form action="ManageUsers" method="POST">
                     <c:forEach items="${usuariosRegistrados.getUsuariosNormales()}" var="usuarios">

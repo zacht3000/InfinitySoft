@@ -5,6 +5,7 @@
 --%>
 
 
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import="main.usuarios.TipoUsuario" %>
@@ -46,20 +47,20 @@
                     <li class="item"><a href="${pageContext.request.contextPath}/index.jsp">INICIO</a></li>
                         <li class="item"><a href="#">SUSCRIPCIONES</a></li>
                         <li class="item"><a href="${pageContext.request.contextPath}/html/productos.jsp">PLANTILLA</a></li>
-                        <li class="item"><a href="${pageContext.request.contextPath}/html/contact.jsp">CONTACTO</a></li>
+                        <li class="item"><a id="contact" href="${pageContext.request.contextPath}/html/contact.jsp">CONTACTO</a></li>
                         <li class="item"><a href="#">SOBRE NOSOTROS</a></li>
                         <li class="item"><a href="${pageContext.request.contextPath}/html/blog.jsp">BLOG</a>
                         <c:if test="${sessionScope.usuario.getTipo() eq TipoUsuario.ADMINISTRADOR}">
-                            <li class="item"><a href="${pageContext.request.contextPath}/html/manageUsers.jsp">ADMINISTRAR</a></li>
+                            <li class="item"><a id="administrar" href="${pageContext.request.contextPath}/html/manageUsers.jsp">ADMINISTRAR</a></li>
                         </c:if>
                         </li>
                         <c:if test="${sessionScope.usuario eq null}">
-                            <li class="item button"><a href="${pageContext.request.contextPath}/html/login.jsp">ENTRAR</a></li>
-                            <li class="item button secondary"><a href="${pageContext.request.contextPath}/html/register.jsp">REGISTRARSE</a></li>
+                            <li class="item button"><a id="login" href="${pageContext.request.contextPath}/html/login.jsp">ENTRAR</a></li>
+                            <li class="item button secondary"><a id="register" href="${pageContext.request.contextPath}/html/register.jsp">REGISTRARSE</a></li>
                             </c:if>
                             <c:if test="${sessionScope.usuario ne null}">
-                            <li class="item button"><a href="${pageContext.request.contextPath}/html/login.jsp">${sessionScope.usuario.getNickName()}</a></li>
-                            <li class="item button secondary"><a href="${pageContext.request.contextPath}/html/closeSession.jsp">CERRAR SESIÓN</a></li>
+                            <li class="item button"><a id="user" href="${pageContext.request.contextPath}/html/login.jsp">${sessionScope.usuario.getNickName()}</a></li>
+                            <li class="item button secondary"><a id="closeSession" href="${pageContext.request.contextPath}/html/closeSession.jsp">CERRAR SESIÓN</a></li>
                             </c:if>
                         <li class="toggle"><a href="#" onclick="myFunction()"><i id="icon" class="fas fa-bars"></i></a></li>
                     </ul>
@@ -83,9 +84,9 @@
                     <c:remove scope="session" var="messageError"/>
                     <c:remove scope="session" var="messageCorrect"/>
                     <p>Nombre de usuario o e-mail:</p>
-                    <input type="text" id="nombre" name="nombreCorreo" required/>
+                    <input type="text" id="nombre" name="nombreCorreo" />
                     <p>Contraseña:</p>
-                    <input type="password" name="contrasenya" id="contrasenya" required/><br/>
+                    <input type="password" name="contrasenya" id="contrasenya"/><br/>
                     <input type="submit" id="send" value="Entrar"/><br/>
                 </form>
             </div>

@@ -3,7 +3,7 @@
     <Resource name="jdbc/InfinitySoft" auth="Container" type="javax.sql.DataSource" 
               maxActive="15" maxIdle="3" 
               maxWait="5000" 
-              username="alumnoDAW" password="alumnoDAW" 
+              username="test" password="test" 
               driverClassName="oracle.jdbc.driver.OracleDriver" 
-              url="jdbc:oracle:thin:@192.168.1.187:1521:xe" />
+              url="jdbc:oracle:thin:@192.168.1.188:1521:xe" />
 </Context>
